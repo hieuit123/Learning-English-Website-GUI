@@ -1,13 +1,209 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+
+/* begin navigator */
+
+.circle-btn-account {
+    background: #00c843;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background: #39ff14;
+    box-shadow: 0 0 40px #52ff33;
+}
+
+.circle-btn-news {
+    background: #f17900;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    box-shadow: 0 0 40px #f17900;
+}
+
+.circle-btn-word-store {
+    background: #e00054;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    box-shadow: 0 0 40px #e00054;
+}
+
+.circle-btn-manage-wb {
+    background: #de0d0d;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    box-shadow: 0 0 40px #de0d0d;
+}
+
+.fa-user {
+    font-size: 2em;
+    padding-top: 22px;
+}
+
+.fa-newspaper {
+    font-size: 2em;
+    padding-top: 24px;
+}
+
+.fa-store-alt {
+    font-size: 2em;
+    padding-top: 24px;
+}
+
+.fa-atlas {
+    font-size: 2em;
+    padding-top: 24px;
+}
+
+.lb-btn-navigator {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.zoom-style-hover {
+    transition: transform .3s;
+}
+
+.zoom-style-hover:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+
+/* end navigator */
+
+
+/* begin info-wb-panel */
+
+.info-wb-panel {
+    background: white;
+    border-radius: 30px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.t-welcome-user {
+    font-size: x-large;
+    font-weight: bold;
+    padding-top: 5px;
+    color: #252525;
+}
+
+.t-guide-user {
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    color: #252525;
+    padding-bottom: 10px;
+}
+
+.container-word-number {
+    width: 250px;
+    background: #de0d0d;
+    border-radius: 30px;
+    font-size: 45pt;
+    font-weight: bold;
+    box-shadow: 0 0 20px #de0d0d;
+}
+
+.word-number {
+    font-size: 45pt;
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.info-current-wb {
+    color: #202020;
+    box-shadow: 0 0 20px #444444;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding: 0 10px 0 10px;
+}
+
+.btn-play-game {
+    background: #20d400;
+    border-radius: 30px;
+    padding: 20px 40px 15px 40px;
+    font-size: xx-large;
+    font-weight: bold;
+    box-shadow: 0 0 20px #19a800;
+    cursor: pointer;
+}
+
+.btn-play-game:hover {
+    background: #1cbb00;
+}
+
+.fa-play {
+    font-size: 1.8em;
+}
+
+.line-1 {
+    border: 1px solid #adadad;
+    width: 70%;
+    margin-bottom: 23px;
+}
+
+
+/* end info-wb-panel */
+
+
+/* begin xl-streak-bar */
+
+.xl-streak-bar {
+    background: white;
+    border-radius: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.fa-sun {
+    color: #f17900;
+    font-size: 3.2em;
+}
+
+.day-streak {
+    color: #f17900;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.number-day-streak {
+    color: white;
+    font-size: 2.1em;
+    font-weight: bold;
+}
+
+.streak-style-text {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.disable-sun {
+    color: #7e7e7e;
+}
+
+.border-left {
+    padding-left: 15px;
+    background: #ff8000;
+    padding-right: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #4e4e4e;
+}
+
+
+/* end xl-streak-bar */
