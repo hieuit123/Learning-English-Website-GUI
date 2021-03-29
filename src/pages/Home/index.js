@@ -7,6 +7,7 @@ import Navigator from '../../components/smart/Navigator'
 export default class Home extends Component {
     render() {
         return (
+
             <div className="container">
                 <div className="navigator col-12">
                     <Navigator />
@@ -18,6 +19,7 @@ export default class Home extends Component {
                     <StreakBar/>
                 </div>
             </div>
+
         )
     }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function NumberDay(props) {
-    var classStyle = "fas fa-sun fa-3x"
-    var dayStyle = "day-streak"
+export default function MiniNumberDay(props) {
+    var classStyle = "fas fa-sun"
+    var dayStyle = "mini-day-streak"
     if(props.status === "disable") {
-        classStyle = "fas fa-sun disable-sun fa-3x"
-        dayStyle = "day-streak disable-sun"
+        classStyle = "fas fa-sun disable-sun"
+        dayStyle = "mini-day-streak disable-sun"
     }
 
     return (

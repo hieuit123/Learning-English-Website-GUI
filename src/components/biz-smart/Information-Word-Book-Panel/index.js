@@ -18,7 +18,7 @@ export default class InformationWordBookPanel extends Component {
                         </div>
 
                         <div className="btn-play-game">
-                            <i class="fas fa-play"></i>
+                            <i className="fas fa-play"></i>
                             <div>CHƠI NGAY</div>
                         </div>
                     </div>
