@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import AccountForm from './pages/Account'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import WordBook from './pages/WordBook';
+import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    let myToken = localStorage.getItem("token")
+    if(!myToken)  return  <AccountForm/>
+    
+    return (
+        <div className="App">
+          <header className="App-header">
+            <div className="main-layout">
+            <Router>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+
+                <Route exact path="/login">
+                  <AccountForm />
+                </Route>
+
+                <Route path="/manage">
+                  <WordBook />
+                </Route>
+
+              </Switch>
+              {/* <AccountForm/> */}
+              </Router>
+            </div>
+          </header>
+
+
+        </div>
+
+    );
+  }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    login: state.loginReducer
+  }
+}
+export default connect(mapStateToProps,null)(App)
