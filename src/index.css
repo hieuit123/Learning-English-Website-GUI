@@ -403,20 +403,41 @@ code {
 
 /* start list word book  */
 
-.account-container {
-    background: white;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    margin-right: 20px;
-    width: 33%;
-    border-radius: 10px;
+@media only screen and (min-width: 300px) {
+    .account-container {
+        background: white;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .word-book-container {
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding-right: 0;
+    }
 }
 
-.word-book-container {
-    background: rgb(255, 255, 255);
-    padding: 10px;
-    width: 65%;
-    border-radius: 10px;
+@media only screen and (min-width: 1300px) {
+    .account-container {
+        background: white;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        margin-right: 20px;
+        width: 33%;
+        border-radius: 10px;
+    }
+    .word-book-container {
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        width: 65%;
+        border-radius: 10px;
+        padding-right: 0;
+    }
 }
 
 .avatar {
@@ -519,7 +540,7 @@ code {
     font-size: 1.1em;
     padding-left: 5px;
     cursor: pointer;
-    transition: transform .1s;
+    transition: transform .0.3s;
 }
 
 .add-button:hover {
@@ -560,6 +581,7 @@ code {
     padding: 8px 7px 8px 7px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .btn-filter i:hover {
@@ -588,7 +610,12 @@ code {
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
     font-size: large;
-    margin-top: 20px;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+.wb-item:hover {
+    box-shadow: 0 6px 10px 0 rgb(13, 141, 35)
 }
 
 .wb-item label {

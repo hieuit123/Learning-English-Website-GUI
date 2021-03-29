@@ -17,7 +17,7 @@ export default class ListWordBookInside extends Component {
         const listWordBook = initialWordBooks.map((wordbook,index) =>{
             let indexColor = index > 2 ? index%3 : index;
             let color = "wb-item "+colors[indexColor];
-            return <Book wordbook={wordbook} color={color}/>
+            return <Book key={index} wordbook={wordbook} color={color}/>
         })
         return (
             <div className="container-list-wb">

@@ -16,7 +16,9 @@ export default class ToolBar extends Component {
         return (
             <div className="right-word-book">
                 <div className="t-right-panel">SỔ TỪ VỰNG</div>
-                <div className="add-button"><i className="fas fa-plus-circle"></i></div>
+                <div className="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                        <i className="fas fa-plus-circle"></i>
+                </div>
 
                 <div className="btn-filter" onClick={handleSearchClick}> <i className="fas fa-filter fa-xs"></i> </div>
 
