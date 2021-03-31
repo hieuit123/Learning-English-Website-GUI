@@ -5,5 +5,5 @@ export const loginAction = (credential, token) => {
         credential: credential,
         token: token
     }
-
 }
+

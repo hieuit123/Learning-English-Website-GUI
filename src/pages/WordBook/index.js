@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import AccountStatusPanel from '../../components/biz-smart/Account-Status-Panel'
 import ListWordBook from '../../components/biz-smart/List-Word-Book'
+import WordBookDetail from '../../components/biz-smart/WordBook-Detail';
 import Navigator from '../../components/smart/Navigator'
 
 export default class WordBook extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShowWBDetail:true
+        }
+    }
+    
     render() {
         return (
             <div className="container">
@@ -16,7 +24,7 @@ export default class WordBook extends Component {
                             <AccountStatusPanel />
                         </div>
                         <div className="word-book-container">
-                            <ListWordBook />
+                            { this.state.isShowWBDetail? <WordBookDetail/> :  <ListWordBook />}
                         </div>
                     </div>
 
