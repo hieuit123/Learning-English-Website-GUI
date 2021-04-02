@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import LoginForm from './Login-Form'
 import ResetPasswordForm from './Reset-Password-Form'
 import SignUpForm from './Sign-Up'

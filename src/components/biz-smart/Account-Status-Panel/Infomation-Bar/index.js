@@ -4,7 +4,7 @@ export default function InformationBar(props) {
     return (
         <div>            
             <div className="avatar">
-                <img src={avatar}/>
+                <img alt="avatar" src={avatar}/>
             </div>
             <div className="info-account">
                 <div className="name">TRAN MINH HIEU</div>

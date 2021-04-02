@@ -670,4 +670,28 @@ code {
 /* end list wod book */
 
 
-/* end list word book  */
+/*start word book detail */
+
+.toolbar-wb-detail {}
+
+.btn-back i {
+    color: rgb(0, 17, 255);
+    float: left;
+    padding: 8px 3px 5px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-back i:hover {
+    color: rgb(0, 14, 204);
+}
+
+.t-wb-detail {
+    font-size: x-large;
+    float: left;
+    color: #202020;
+}
+
+
+/*end word book detail */
