@@ -36,7 +36,12 @@ class LoginForm extends Component {
             let username = this.state.username
             let password = this.state.password
             let token = await login({ username, password })
-            if(token) this.props.onLogin(username, token)        
+            alert(token)
+            if(token) {
+                this.props.onLogin(username, token)
+            }else{
+                alert("Đăng nhập không thành công!")
+            }        
         }
 
         return (
@@ -48,7 +53,7 @@ class LoginForm extends Component {
                         <button className="btn google-btn social-btn" type="button"><span><i className="fab fa-google-plus-g" /> Đăng nhập bằng Google+</span> </button>
                     </div>
                     <p className="t-or" > HOẶC</p>
-                    <input type="email" id="inputEmail" className="form-control" placeholder="Địa chỉ email"np required />
+                    <input type="email" id="inputEmail" className="form-control" placeholder="Địa chỉ email"  onChange={e => this.setState({ username: e.target.value })}  required />
                     <input type="password" id="inputPassword" className="form-control" placeholder="Mật khẩu" onChange={e => this.setState({ password: e.target.value })} required />
                     <button className="btn btn-success btn-block" type="submit"><i className="fas fa-sign-in-alt" /> Đăng nhập</button>
                     <a href="/home" id="forgot_pswd">Quên mật khẩu?</a>

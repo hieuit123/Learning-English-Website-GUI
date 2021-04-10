@@ -7,9 +7,12 @@ export default class WordBookDetail extends Component {
         return (
             <div>
                 <ToolBar/>
-                <hr></hr>
+                <hr className="line-full"></hr>
+                <div className="container-wb-detail">
                 <LeftPanel />
                 <RightPanel />
+                <div className="clearfix"></div>
+                </div>
             </div>
         )
     }

@@ -25,7 +25,8 @@ class App extends Component {
                 </Route>
 
                 <Route path="/manage">
-                  {!myToken ? <Redirect to="/login" /> : <WordBook />}
+                  {/* {!myToken ? <Redirect to="/login" /> : <WordBook />} */}
+                  <WordBook/>
                 </Route>
 
               </Switch>

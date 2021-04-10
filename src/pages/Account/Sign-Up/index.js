@@ -34,7 +34,11 @@ export default class SignUpForm extends Component {
             e.preventDefault();
             let {AC_fullName, AC_Email, AC_passWord, rePassWord} = this.state
             let isSuccess = await signUp({AC_fullName,AC_Email,AC_passWord})
-            if(isSuccess) alert("Đăng ký thành công!")
+            if(isSuccess) {
+                alert("Đăng ký thành công!")
+                window.location.reload()
+            }
+            else alert("Email đa tồn tại!")
         }
         return (
             <>

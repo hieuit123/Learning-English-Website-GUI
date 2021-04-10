@@ -181,11 +181,10 @@ code {
 /* begin navigator */
 
 .circle-btn-account {
-    background: #00c843;
+    background: #22da00;
     width: 4em;
     height: 4em;
     border-radius: 50%;
-    background: #39ff14;
     box-shadow: 0 0 40px #52ff33;
 }
 
@@ -517,14 +516,14 @@ code {
 }
 
 .btn-mini-play-game {
-    background: #03d000;
+    background: #0066ff;
     padding-top: 10px;
     margin: 30px 10px 0 10px;
     border-radius: 50px;
 }
 
 .btn-mini-play-game:hover {
-    background: #04b101;
+    background: #0058dd;
     cursor: pointer;
 }
 
@@ -672,7 +671,15 @@ code {
 
 /*start word book detail */
 
-.toolbar-wb-detail {}
+.toolbar-wb-detail select {
+    font-size: large;
+    float: right;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    color: #2c2c2c;
+}
 
 .btn-back i {
     color: rgb(0, 17, 255);
@@ -691,6 +698,72 @@ code {
     font-size: x-large;
     float: left;
     color: #202020;
+    line-height: 1.4rem;
+}
+
+.t-wb-detail .sotu {
+    font-size: medium;
+    text-align: left;
+    color: #6d6d6d;
+    padding-left: 5px;
+}
+
+.left-panel-wb-detail {
+    width: 45%;
+    float: left;
+}
+
+.right-panel-wb-detail {
+    width: 55%;
+    float: right;
+    padding: 10px 20px 10px 20px;
+    border-left: 1px solid #949494;
+    position: relative;
+    left: 0;
+    top: 0;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.container-wb-detail {
+    width: 100%;
+}
+
+.word-item {
+    color: #0058dd;
+    font-size: medium;
+    border: 1px solid #0058dd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px 0 10px 10px;
+    cursor: pointer;
+    text-align: left;
+    text-justify: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: large;
+}
+
+.word-item .ex-sentence {
+    color: #202020;
+    font-weight: 500;
+}
+
+.word-item:hover {
+    background: #f6f6f6;
+}
+
+.word-item i {
+    padding-top: 5px;
+    float: right;
+    padding-right: 5px;
+}
+
+.word-item i:hover {
+    color: #247cff;
 }
 
 
