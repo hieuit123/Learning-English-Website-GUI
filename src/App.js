@@ -21,7 +21,7 @@ class App extends Component {
                 </Route>
 
                 <Route exact path="/login">
-                {!myToken ? <AccountForm/> : <Home/>}
+                {!myToken ? <AccountForm/> : <Redirect to="/" />}
                 </Route>
 
                 <Route path="/manage">

@@ -1,6 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux'
-import { Component } from 'react';
+import React, { Component } from 'react';
+
 import * as actions from './../../../actions'
 import * as configUrl from './../../../assets/config/config-url'
 import convertPostData from './../../../utils/convertPostData'
@@ -36,7 +36,6 @@ class LoginForm extends Component {
             let username = this.state.username
             let password = this.state.password
             let token = await login({ username, password })
-            alert(token)
             if(token) {
                 this.props.onLogin(username, token)
             }else{
