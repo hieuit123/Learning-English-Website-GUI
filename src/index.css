@@ -768,3 +768,84 @@ code {
 
 
 /*end word book detail */
+
+
+/*start word detail popup */
+
+.btn-star {
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    color: #cfcfcf;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-star:hover {
+    background: rgb(255, 204, 0);
+    color: white;
+}
+
+.btn-done {
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    color: #cfcfcf;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 4px;
+    float: left;
+}
+
+.btn-done:hover {
+    background: #ffffff;
+    color: #1cbb00;
+}
+
+.btn-word-level {
+    float: left;
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #0066ff;
+}
+
+.btn-word-level:hover {
+    background: #eeeeee;
+}
+
+.img-word {
+    height: 200px;
+}
+
+.header-toolbar span {
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-body {
+    color: #0058dd;
+    font-size: large;
+}
+
+.modal-body .content-word {
+    padding: 5px;
+    border: 2px solid #0058dd;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.modal-body .title-word {
+    font-size: x-large;
+    text-align: left;
+    margin: 8px 3px;
+}
+
+
+/*end word detail popup */
