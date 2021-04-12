@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ListWordBookInside from './List-Word-Book-Inside/index.js'
-import ToolBar from './ToolBar.js'
+import ToolBar from './ToolBar'
 
 export default class ListWordBook extends Component {
     render() {

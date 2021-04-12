@@ -181,11 +181,10 @@ code {
 /* begin navigator */
 
 .circle-btn-account {
-    background: #00c843;
+    background: #22da00;
     width: 4em;
     height: 4em;
     border-radius: 50%;
-    background: #39ff14;
     box-shadow: 0 0 40px #52ff33;
 }
 
@@ -403,20 +402,41 @@ code {
 
 /* start list word book  */
 
-.account-container {
-    background: white;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    margin-right: 20px;
-    width: 33%;
-    border-radius: 10px;
+@media only screen and (min-width: 300px) {
+    .account-container {
+        background: white;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .word-book-container {
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding-right: 0;
+    }
 }
 
-.word-book-container {
-    background: rgb(255, 255, 255);
-    padding: 10px;
-    width: 65%;
-    border-radius: 10px;
+@media only screen and (min-width: 1300px) {
+    .account-container {
+        background: white;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        margin-right: 20px;
+        width: 33%;
+        border-radius: 10px;
+    }
+    .word-book-container {
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        width: 65%;
+        border-radius: 10px;
+        padding-right: 0;
+    }
 }
 
 .avatar {
@@ -496,14 +516,14 @@ code {
 }
 
 .btn-mini-play-game {
-    background: #03d000;
+    background: #0066ff;
     padding-top: 10px;
     margin: 30px 10px 0 10px;
     border-radius: 50px;
 }
 
 .btn-mini-play-game:hover {
-    background: #04b101;
+    background: #0058dd;
     cursor: pointer;
 }
 
@@ -519,7 +539,7 @@ code {
     font-size: 1.1em;
     padding-left: 5px;
     cursor: pointer;
-    transition: transform .1s;
+    transition: transform .0.3s;
 }
 
 .add-button:hover {
@@ -560,6 +580,7 @@ code {
     padding: 8px 7px 8px 7px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .btn-filter i:hover {
@@ -588,7 +609,12 @@ code {
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
     font-size: large;
-    margin-top: 20px;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+.wb-item:hover {
+    box-shadow: 0 6px 10px 0 rgb(13, 141, 35)
 }
 
 .wb-item label {
@@ -643,4 +669,183 @@ code {
 /* end list wod book */
 
 
-/* end list word book  */
+/*start word book detail */
+
+.toolbar-wb-detail select {
+    font-size: large;
+    float: right;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    color: #2c2c2c;
+}
+
+.btn-back i {
+    color: rgb(0, 17, 255);
+    float: left;
+    padding: 8px 3px 5px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-back i:hover {
+    color: rgb(0, 14, 204);
+}
+
+.t-wb-detail {
+    font-size: x-large;
+    float: left;
+    color: #202020;
+    line-height: 1.4rem;
+}
+
+.t-wb-detail .sotu {
+    font-size: medium;
+    text-align: left;
+    color: #6d6d6d;
+    padding-left: 5px;
+}
+
+.left-panel-wb-detail {
+    width: 45%;
+    float: left;
+}
+
+.right-panel-wb-detail {
+    width: 55%;
+    float: right;
+    padding: 10px 20px 10px 20px;
+    border-left: 1px solid #949494;
+    position: relative;
+    left: 0;
+    top: 0;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.container-wb-detail {
+    width: 100%;
+}
+
+.word-item {
+    color: #0058dd;
+    font-size: medium;
+    border: 1px solid #0058dd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px 0 10px 10px;
+    cursor: pointer;
+    text-align: left;
+    text-justify: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: large;
+}
+
+.word-item .ex-sentence {
+    color: #202020;
+    font-weight: 500;
+}
+
+.word-item:hover {
+    background: #f6f6f6;
+}
+
+.word-item i {
+    padding-top: 5px;
+    float: right;
+    padding-right: 5px;
+}
+
+.word-item i:hover {
+    color: #247cff;
+}
+
+
+/*end word book detail */
+
+
+/*start word detail popup */
+
+.btn-star {
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    color: #cfcfcf;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-star:hover {
+    background: rgb(255, 204, 0);
+    color: white;
+}
+
+.btn-done {
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    color: #cfcfcf;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 4px;
+    float: left;
+}
+
+.btn-done:hover {
+    background: #ffffff;
+    color: #1cbb00;
+}
+
+.btn-word-level {
+    float: left;
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #0066ff;
+}
+
+.btn-word-level:hover {
+    background: #eeeeee;
+}
+
+.img-word {
+    height: 200px;
+}
+
+.header-toolbar span {
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-body {
+    color: #0058dd;
+    font-size: large;
+}
+
+.modal-body .content-word {
+    padding: 5px;
+    border: 2px solid #0058dd;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.modal-body .title-word {
+    font-size: x-large;
+    text-align: left;
+    margin: 8px 3px;
+}
+
+
+/*end word detail popup */

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class WordBookDetail extends Component {
+export default class ToolBar extends Component {
     render() {
         return (
             <div>
-                Word Book Detail
+                
             </div>
         )
     }

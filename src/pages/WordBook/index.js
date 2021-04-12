@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import AccountStatusPanel from '../../components/biz-smart/Account-Status-Panel'
 import ListWordBook from '../../components/biz-smart/List-Word-Book'
+import WordBookDetail from '../../components/biz-smart/WordBook-Detail';
 import Navigator from '../../components/smart/Navigator'
+import {connect} from 'react-redux'
 
-export default class WordBook extends Component {
+class WordBook extends Component {
     render() {
+        
         return (
             <div className="container">
                 <div className="navigator col-12">
@@ -16,7 +19,7 @@ export default class WordBook extends Component {
                             <AccountStatusPanel />
                         </div>
                         <div className="word-book-container">
-                            <ListWordBook />
+                            { this.props.isShowWBDetail? <WordBookDetail/> :  <ListWordBook />}
                         </div>
                     </div>
 
@@ -27,3 +30,10 @@ export default class WordBook extends Component {
         )
     }
 }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        isShowWBDetail: state.showComponentReducer.isShowWBDetail,
+        id: state.showComponentReducer.idItem
+    }
+}
+export default connect(mapStateToProps,null)(WordBook)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import Home from '../../../pages/Home'
+
 export default function Navigator() {
     return (
         <div className="d-flex justify-content-around">

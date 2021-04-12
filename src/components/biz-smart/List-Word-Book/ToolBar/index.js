@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactTooltip from "react-tooltip";
 
 export default class ToolBar extends Component {
     constructor(props) {
@@ -16,7 +17,11 @@ export default class ToolBar extends Component {
         return (
             <div className="right-word-book">
                 <div className="t-right-panel">SỔ TỪ VỰNG</div>
-                <div className="add-button"><i className="fas fa-plus-circle"></i></div>
+
+                <div className="add-button" data-tip="Tạo sổ từ mới" data-for="addButtonTip" >
+                    <i className="fas fa-plus-circle"></i>
+                </div>
+                <ReactTooltip className="tooltipButton" id="addButtonTip" place="bottom" effect="solid" />
 
                 <div className="btn-filter" onClick={handleSearchClick}> <i className="fas fa-filter fa-xs"></i> </div>
 
