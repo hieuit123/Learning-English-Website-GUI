@@ -8,8 +8,7 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
-    if(this.props.loginState.token != null) alert(this.props.loginState.token)
-    let myToken = localStorage.getItem("token")
+    let myToken = localStorage.getItem("tokenlve")
     return (
       <div className="App">
         <header className="App-header">

@@ -3,11 +3,9 @@ import InformationWordBookPanel from '../../components/biz-smart/Information-Wor
 import StreakBar from '../../components/common/XL-Streak-Bar'
 import Navigator from '../../components/smart/Navigator'
 
-
 export default class Home extends Component {
     render() {
         return (
-
             <div className="container">
                 <div className="navigator col-12">
                     <Navigator />

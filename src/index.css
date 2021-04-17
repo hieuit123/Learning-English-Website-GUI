@@ -52,6 +52,7 @@ code {
     background-color: #f3f3f3;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    border-radius: 5px;
 }
 
 #logreg-forms form {
@@ -736,15 +737,20 @@ code {
     border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px 0 10px 10px;
-    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+}
+
+.content-word {
+    float: left;
+    width: 80%;
     text-align: left;
     text-justify: auto;
     overflow: hidden;
-    text-overflow: ellipsis;
-    text-transform: lowercase;
     white-space: nowrap;
-    font-weight: bold;
-    font-size: large;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-transform: lowercase;
 }
 
 .word-item .ex-sentence {
@@ -764,6 +770,7 @@ code {
 
 .word-item i:hover {
     color: #247cff;
+    cursor: pointer;
 }
 
 
@@ -847,5 +854,39 @@ code {
     margin: 8px 3px;
 }
 
+.btn-logout-nav {
+    position: fixed;
+    top: 3%;
+    right: 1%;
+    width: 150px;
+    background: rgb(238, 238, 238);
+    padding: 7px 0px;
+    color: #0058dd;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.btn-logout-nav i {
+    padding-right: 5px;
+    padding-top: 3px;
+}
+
+.btn-logout-nav:hover {
+    background: white;
+    box-shadow: 3px 3px 3px #e0e0e0;
+    cursor: pointer;
+}
+
 
 /*end word detail popup */
+
+
+/*style alert danger */
+
+#alertWarning {
+    display: none;
+    font-size: medium;
+}
+
+
+/*end */

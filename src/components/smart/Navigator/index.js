@@ -1,8 +1,15 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import {Link} from "react-router-dom"
 
+
+const handleClick = ()=>{
+    localStorage.removeItem("tokenlve");
+    localStorage.setItem("accountIDlve",'false')
+    window.location="/login";
+}
 export default function Navigator() {
     return (
+        <>
         <div className="d-flex justify-content-around">
 
             <div className="zoom-style-hover">
@@ -34,7 +41,7 @@ export default function Navigator() {
                 </Link>
             </div>
         </div>
-
-
+        <div onClick={handleClick} className="btn-logout-nav"><i className="fas fa-sign-out-alt"></i>Đăng xuất</div>
+        </>
     )
 }
