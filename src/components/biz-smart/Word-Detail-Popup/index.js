@@ -23,7 +23,7 @@ export default class WordDetailPopup extends Component {
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><i className="fas fa-times"></i></button>
                         </div>
                         <div className="modal-body">
-                            <img className="img-word" src="https://picsum.photos/id/1/300/300" />
+                            <img className="img-word" alt="avatar-word" src="https://picsum.photos/id/1/300/300" />
                             <div className="title-word">laptop(n): máy tính</div>
                             <div className="content-word">I open laptop everyday because i am software engineer developer</div>
                         </div>

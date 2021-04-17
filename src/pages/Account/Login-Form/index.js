@@ -26,7 +26,7 @@ class LoginForm extends Component {
                 body: formBody
             }).then(data => data.json())
             if(response.status === true) {
-                return response.data.S_Value   
+                return response   
             }
             return false;
         }
@@ -35,9 +35,10 @@ class LoginForm extends Component {
             e.preventDefault();
             let username = this.state.username
             let password = this.state.password
-            let token = await login({ username, password })
-            if(token) {
-                this.props.onLogin(username, token)
+            let responseData = await login({ username, password })
+            if(responseData) {
+                this.props.onLogin(username, responseData.data.S_Value, responseData.AC_Id)
+                window.location.reload();
             }else{
                 alert("Đăng nhập không thành công!")
             }        
@@ -68,8 +69,8 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onLogin: (username, token) => {
-            dispatch(actions.loginAction({ username, token }))
+        onLogin: (username, token, accountID) => {
+            dispatch(actions.loginAction({ username, token, accountID }))
         }
     }
 }
