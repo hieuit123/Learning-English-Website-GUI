@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import ReactTooltip from 'react-tooltip'
 import spellWord from './../../../utils/spellWord'
 export default class WordDetailPopup extends Component {
-
     render() {     
         return (
-            <div className="modal fade" id="popup-word-detail" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={`popuplve${this.props.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -24,15 +23,15 @@ export default class WordDetailPopup extends Component {
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><i className="fas fa-times"></i></button>
                         </div>
                         <div className="modal-body">
-                            <img className="img-word" alt="avatar-word" src="https://picsum.photos/id/1/300/300" />
+                            <img className="img-word" alt="avatar-word" src={this.props.avatar} />
 
-                            <div className="title-word"  onClick={()=>spellWord("laptop")}>laptop(n): máy tính</div>
+                            <div className="title-word"  onClick={()=>spellWord(this.props.title)}>{`${this.props.title}: ${this.props.translation}`}</div>
                             <div>
-                                <i className="fas fa-volume-up fa-md"  onClick={()=>spellWord("laptop")}></i>
-                                <div className="ipa-word"  onClick={()=>spellWord("laptop")}>ˈlapˌtäp</div>
+                                <i className="fas fa-volume-up fa-md"  onClick={()=>spellWord(this.props.title)}></i>
+                                <div className="ipa-word"  onClick={()=>spellWord(this.props.title)}>{this.props.ipa}</div>
                                 <div className="clearfix"></div>
                             </div>
-                            <div className="content-word-popup">I open laptop everyday because i am software engineer developer</div>
+                            <div className="content-word-popup">{this.props.example}</div>
                         </div>
                     </div>
                 </div>

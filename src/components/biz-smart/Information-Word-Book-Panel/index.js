@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class InformationWordBookPanel extends Component {
     render() {
@@ -16,11 +17,12 @@ export default class InformationWordBookPanel extends Component {
                         <div className="container-word-number">
                             <div className="word-number">35</div>
                         </div>
-
+                        <Link to="/game">
                         <div className="btn-play-game">
                             <i className="fas fa-play"></i>
-                            <div>CHƠI NGAY</div>
+                            <div id="play-game-btn">CHƠI NGAY</div>
                         </div>
+                        </Link>
                     </div>
                     <label className="info-current-wb"> BẠN ĐÃ THÊM ĐƯỢC <strong>35</strong> TỪ VÀO HÔM NAY</label>
                 </div>

@@ -308,10 +308,15 @@ code {
     font-weight: bold;
     box-shadow: 0 0 20px #19a800;
     cursor: pointer;
+    color: white;
 }
 
 .btn-play-game:hover {
     background: #1cbb00;
+}
+
+#play-game-btn {
+    text-decoration: underline;
 }
 
 .fa-play {
@@ -521,6 +526,7 @@ code {
     padding-top: 10px;
     margin: 30px 10px 0 10px;
     border-radius: 50px;
+    color: white;
 }
 
 .btn-mini-play-game:hover {
@@ -736,7 +742,6 @@ code {
     border: 1px solid #0058dd;
     border-radius: 5px;
     margin-bottom: 5px;
-    padding: 10px 0 10px 10px;
     font-weight: bold;
     font-size: large;
 }
@@ -750,6 +755,7 @@ code {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
+    padding: 10px 0 10px 10px;
     text-transform: lowercase;
 }
 
