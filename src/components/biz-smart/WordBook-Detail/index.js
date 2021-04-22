@@ -13,7 +13,7 @@ export default class WordBookDetail extends Component {
                 <hr className="line-full"></hr>
                 <div className="container-wb-detail">
                 <LeftPanel />
-                <RightPanel />
+                <RightPanel id={this.props.id}/>
                 <div className="clearfix"></div>
                 </div>
             </div>

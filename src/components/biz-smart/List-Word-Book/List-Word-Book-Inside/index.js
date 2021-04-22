@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
 import Book from './Book'
-
+import axios from 'axios'
 export default class ListWordBookInside extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            wordBookData: null
+        }
+    }
+    async componentWillMount() {
+        let accountID = localStorage.getItem("accountIDlve")
+        let result = await axios.get("/wordbook/getallbyidaccount/" + accountID)
+        let finalResult = result.data
+        if (finalResult.status) this.setState({ wordBookData: finalResult.data });
+    }
 
     render() {
+        let htmlWordBooks
         const colors = ['green-color','yellow-color','blue-white-color']
-        var initialWordBooks = [
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ],
-            [ 'Công Nghệ Thông Tin','technology/công nghệ', 'wireless/không dây','operation/phép tính','hello/xin chào' ]
-        ]
-        const listWordBook = initialWordBooks.map((wordbook,index) =>{
-            let indexColor = index > 2 ? index%3 : index;
-            let color = "wb-item "+colors[indexColor];
-            return <Book id="w" key={index} wordbook={wordbook} color={color}/>
-        })
+        if (this.state.wordBookData) {
+            htmlWordBooks = this.state.wordBookData.map((wordbook, index) => {
+                let indexColor = index > 2 ? index % 3 : index;
+                let color = "wb-item " + colors[indexColor];
+                return <Book key={index} wordbook={wordbook} color={color} />
+            })
+        }else htmlWordBooks = "Bạn chưa thêm sổ từ"
         return (
             <div className="container-list-wb">
-                {listWordBook}
+                {htmlWordBooks}
             </div>
         )
     }

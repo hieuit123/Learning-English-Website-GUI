@@ -19,7 +19,7 @@ class WordBook extends Component {
                             <AccountStatusPanel />
                         </div>
                         <div className="word-book-container">
-                            { this.props.isShowWBDetail? <WordBookDetail/> :  <ListWordBook />}
+                            { this.props.isShowWBDetail? <WordBookDetail id={this.props.id}/> :  <ListWordBook />}
                         </div>
                     </div>
 

@@ -16,7 +16,7 @@ export default class Word extends Component {
                 <i className="fas fa-volume-up fa-lg" onClick={() => spellWord(this.props.title)}></i>
                 <div className="clearfix"></div>
             </div>
-            <WordDetailPopup key={this.props.key} ipa={this.props.ipa} id={this.props.id} title={this.props.title} example={this.props.example} avatar={this.props.avatar} translation={this.props.translation} />
+            <WordDetailPopup ipa={this.props.ipa} id={this.props.id} title={this.props.title} example={this.props.example} avatar={this.props.avatar} translation={this.props.translation} />
         </>
         )
     }
