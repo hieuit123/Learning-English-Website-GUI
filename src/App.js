@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import WordBook from './pages/WordBook';
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Game from './pages/Game';
 
 class App extends Component {
   render() {
@@ -24,8 +25,11 @@ class App extends Component {
                 </Route>
 
                 <Route path="/manage">
-                  {/* {!myToken ? <Redirect to="/login" /> : <WordBook />} */}
-                  <WordBook/>
+                  {!myToken ? <Redirect to="/login" /> : <WordBook />}
+                </Route>
+
+                <Route path="/game">
+                  {!myToken ? <Redirect to="/login" /> : <Game/>}
                 </Route>
 
               </Switch>

@@ -20,3 +20,14 @@ export const closeComponentDetailAction = (type) => {
         isShow: false
     }
 }
+export const initGameDataAction = ()=>{
+    return {
+        type: types.INIT_GAME_DATA
+    }
+}
+export const nextQuestion = (nextQuestion)=>{
+    return {
+        type: types.NEXT_QUESTION,
+        nextQuestion: nextQuestion
+    }
+}

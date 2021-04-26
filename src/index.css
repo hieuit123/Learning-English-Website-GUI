@@ -25,6 +25,14 @@ code {
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 
 /* copy from BootsnippA */
 
@@ -308,6 +316,7 @@ code {
     font-weight: bold;
     box-shadow: 0 0 20px #19a800;
     cursor: pointer;
+    color: white;
 }
 
 .btn-play-game:hover {
@@ -521,6 +530,7 @@ code {
     padding-top: 10px;
     margin: 30px 10px 0 10px;
     border-radius: 50px;
+    color: white;
 }
 
 .btn-mini-play-game:hover {
@@ -612,10 +622,12 @@ code {
     font-size: large;
     margin: 20px 10px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .wb-item:hover {
-    box-shadow: 0 6px 10px 0 rgb(13, 141, 35)
+    box-shadow: 0 6px 8px 0 rgba(43, 189, 67, 0.692);
+    transition: 0.2s;
 }
 
 .wb-item label {
@@ -724,6 +736,7 @@ code {
     top: 0;
     max-height: 60vh;
     overflow-y: scroll;
+    color: rgb(83, 83, 83);
 }
 
 .container-wb-detail {
@@ -736,7 +749,6 @@ code {
     border: 1px solid #0058dd;
     border-radius: 5px;
     margin-bottom: 5px;
-    padding: 10px 0 10px 10px;
     font-weight: bold;
     font-size: large;
 }
@@ -750,6 +762,7 @@ code {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
+    padding: 10px 0 10px 10px;
     text-transform: lowercase;
 }
 
@@ -790,7 +803,8 @@ code {
     float: left;
 }
 
-.btn-star:hover {
+.btn-star:hover,
+.btn-star.active {
     background: rgb(255, 204, 0);
     color: white;
 }
@@ -807,7 +821,8 @@ code {
     float: left;
 }
 
-.btn-done:hover {
+.btn-done:hover,
+.btn-done.active {
     background: #ffffff;
     color: #1cbb00;
 }
@@ -821,6 +836,22 @@ code {
     border-radius: 10px;
     cursor: pointer;
     color: #0066ff;
+}
+
+.btn-trash {
+    float: left;
+    background: #f9f9f9;
+    border: 1px solid #d1d1d1;
+    margin-right: 4px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #0066ff;
+}
+
+.btn-trash:hover,
+.btn-trash.active {
+    color: #222222;
 }
 
 .btn-word-level:hover {
@@ -841,17 +872,43 @@ code {
     font-size: large;
 }
 
-.modal-body .content-word {
+.modal-body i {
+    float: left;
+    margin-top: 10px;
+    margin-left: 3px;
+    padding-right: 5px;
+    color: #ff4800;
+}
+
+.modal-body i:hover {
+    color: #b43300;
+    cursor: pointer;
+}
+
+.ipa-word {
+    float: left;
+    font-size: x-large;
+    font-weight: 300;
+    color: #ff4800;
+}
+
+.ipa-word:hover {
+    color: #b43300;
+    cursor: pointer;
+}
+
+.content-word-popup {
     padding: 5px;
     border: 2px solid #0058dd;
     text-align: left;
     border-radius: 8px;
+    margin-top: 8px;
+    width: 100%;
 }
 
 .modal-body .title-word {
     font-size: x-large;
     text-align: left;
-    margin: 8px 3px;
 }
 
 .btn-logout-nav {
@@ -890,3 +947,238 @@ code {
 
 
 /*end */
+
+
+/* start game */
+
+.container-game {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    color: #202020;
+}
+
+.answer-row {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.gameMode1 img {
+    height: 200px;
+}
+
+.number-question {
+    float: left;
+    padding: 3px 10px;
+    color: #20d400;
+    border: 5px solid rgb(194, 194, 194);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-guide {
+    float: left;
+    color: #20d400;
+    font-size: 42px;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.btn-guide:hover {
+    color: #1bb600;
+    text-shadow: 0 2px 5px rgba(82, 255, 2, 0.473), 0 2px 5px rgba(9, 255, 0, 0.459);
+    transition: 0.1s;
+}
+
+.star-info {
+    float: right;
+    border: 5px solid #d6d6d6;
+    border-radius: 10px;
+    font-size: 27px;
+    font-weight: 600;
+    color: #ffd900;
+    padding: 0 10px;
+}
+
+.star-info i {
+    margin-right: 5px;
+}
+
+.gameMode1 {
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+.gameMode1-title {
+    color: #129900;
+    font-size: x-large;
+}
+
+.gameMode1-sentence {
+    font-size: x-large;
+    background: #ffffff;
+    color: rgb(54, 54, 54);
+    padding: 10px 0;
+    margin: 10px auto;
+    width: 58%;
+    border-radius: 15px;
+}
+
+.mode1-answer {
+    color: #ffffff;
+    background: #00d10a;
+    margin: 5px;
+    width: 48%;
+    padding: 5px 0;
+    border-radius: 10px;
+    font-size: large;
+    font-size: large;
+    font-weight: 600;
+}
+
+.mode1-answer:hover {
+    background: #00be0a;
+    cursor: pointer;
+}
+
+
+/* end navigation */
+
+
+/* start check popup */
+
+.check-popup-title {
+    float: left;
+}
+
+.check-popup-btn {
+    float: right;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.check-popup-btn.default {
+    background: rgb(35, 209, 0);
+    color: white;
+}
+
+.check-popup-btn.default:hover {
+    background: rgb(32, 194, 0);
+    color: white;
+}
+
+.check-popup-btn.red:hover {
+    background: #f1f1f1;
+}
+
+.check-popup-btn.green:hover {
+    background: #f1f1f1;
+}
+
+.check-popup-answer {
+    background: rgb(233, 233, 233);
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.check-popup-answer.green {
+    color: #1bb600;
+    background: #b1ffa4;
+}
+
+.check-popup-answer.red {
+    color: rgb(219, 39, 39);
+    background: #ffc4c4;
+}
+
+.check-popup-title.green {
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.check-popup-answer .true {
+    color: rgb(0, 170, 0);
+    float: left;
+    margin-top: 2px;
+}
+
+.check-popup-answer .false {
+    color: rgb(219, 39, 39);
+    float: left;
+    margin-top: 2px;
+}
+
+.check-popup-title.red {
+    color: rgb(219, 39, 39);
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.check-popup-btn.green {
+    color: #1cb900;
+    background: rgb(255, 255, 255);
+}
+
+.check-popup-btn.red {
+    color: rgb(219, 39, 39);
+    background: rgb(255, 255, 255);
+}
+
+.correct-answer {
+    font-size: large;
+    margin-left: 15px;
+    float: left;
+}
+
+.own-answer {
+    font-size: large;
+    padding: 10px;
+    border-radius: 15px;
+    float: left;
+    background: rgb(75, 185, 75);
+    color: white;
+    font-weight: 600;
+}
+
+.hide-component {
+    display: none;
+}
+
+
+/* end check popup */
+
+
+/* gameMode2 */
+
+.gameMode2 {
+    width: 80%;
+}
+
+.gameMode2 img {
+    height: 120px;
+}
+
+.answer-container {
+    width: 90%;
+}
+
+.question-container {
+    margin-top: 5px;
+    width: 90%;
+}
+
+
+/* gameMode2 */
+
+
+/* end game */
