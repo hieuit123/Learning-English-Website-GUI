@@ -18,7 +18,7 @@ export default class RightPanel extends Component {
         if (this.state.wordData) {
             console.log("davao");
             myListWord = this.state.wordData.map((word, index) => {
-                return <Word key={index} id={word.W_Id} ipa={word.W_ipaWord} title={word.W_originalWord} example={word.W_Phrase} avatar={word.W_Avatar} translation={word.W_translatedWord} />
+                return <Word key={index} id={word.W_Id} ipa={word.W_ipaWord} title={word.W_originalWord} example={word.W_Phrase} avatar={word.W_Avatar} translation={word.W_translatedWord} idState={word.W_idState} />
             })
         }
         return (

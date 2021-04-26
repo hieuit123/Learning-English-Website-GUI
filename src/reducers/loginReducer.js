@@ -1,6 +1,5 @@
 import * as types from './../constant/ACTION_TYPE'
 
-
 var initialState = {
     userName: null,
     token: null,
