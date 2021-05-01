@@ -8,7 +8,7 @@ export default class RightPanel extends Component {
             wordData: null
         }
     }
-    async componentWillMount() {
+    async componentDidMount() {
         let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
         let finalResult = result.data
         if (finalResult.status) this.setState({ wordData: finalResult.data })
