@@ -48,7 +48,6 @@ export default function Navigator() {
                 </div>
             </div>
             <div onClick={handleClick} className="btn-logout-nav"><i className="fas fa-sign-out-alt"></i>Đăng xuất</div>
-            <Link to="/" ><div className="btn-home-nav"><i className="fas fa-sign-out-alt"></i>Home</div></Link>
         </>
     )
 }

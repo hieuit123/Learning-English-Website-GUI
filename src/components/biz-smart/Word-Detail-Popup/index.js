@@ -15,15 +15,15 @@ export default class WordDetailPopup extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         let initStateWord = this.props.idState
-
+        console.log(this.props.idState);
         switch (initStateWord) {
-            case 2:
-                this.setState({ isShowStarIcon: true });
-                break;
             case 1:
                 this.setState({ isShowStarIcon: true });
+                break;
+            case 2:
+                this.setState({ isShowStarIcon: false });
                 break;
             case 4:
                 this.setState({ isShowDoneIcon: true })
@@ -38,11 +38,12 @@ export default class WordDetailPopup extends Component {
                 break;
         }
     }
+    
     render() {
         const updateStateWord = async (idState) => {
             let requestData = {
-                W_Id:this.props.id,
-                W_idState:idState
+                W_Id: this.props.id,
+                W_idState: idState
             }
             let formBody = convertPostData(requestData)
 
@@ -52,8 +53,8 @@ export default class WordDetailPopup extends Component {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
                 body: formBody
-            }).then(data => data.json()).then(json => {if(json.status == false) alert("Đã có lỗi xảy ra")})   
-            
+            }).then(data => data.json()).then(json => { if (json.status == false) alert("Đã có lỗi xảy ra") })
+
         }
         const changeStateWord = (idState) => {
             switch (idState) {
@@ -72,12 +73,11 @@ export default class WordDetailPopup extends Component {
                         updateStateWord(3)
                     }
                     else {
-
                         if (this.state.isShowDoneIcon) updateStateWord(6)
                         else updateStateWord(1)
                     }
                     break;
-                case 4:
+                case 3:
                     this.setState({ isShowDoneIcon: !this.state.isShowDoneIcon });
                     if (this.state.isShowDoneIcon) {
                         updateStateWord(3)
@@ -96,10 +96,10 @@ export default class WordDetailPopup extends Component {
                         <div className="modal-header">
                             {/* left header */}
                             <div className="header-toolbar">
-                                <div onClick={() => changeStateWord(4)} className={(this.state.isShowDoneIcon) ? "btn-done active" : "btn-done"} data-tip="Đánh dấu từ này đã thuộc" data-for="btn-level-tip"><i className="fas fa-check fa-sm"></i></div>
+                                <div onClick={() => changeStateWord(3)} className={(this.state.isShowDoneIcon) ? "btn-done active" : "btn-done"} data-tip="Đánh dấu từ này đã thuộc" data-for="btn-level-tip"><i className="fas fa-check fa-sm"></i></div>
                                 <div onClick={() => changeStateWord(1)} className={(this.state.isShowStarIcon) ? "btn-star active" : "btn-star"} data-tip="Ưu tiên học từ này" data-for="btn-level-tip"><i className="fas fa-star fa-sm"></i></div>
                                 <div className="btn-word-level" data-tip="Đã thuộc 70%" data-for="btn-level-tip"><i className="far fa-circle fa-sm"></i></div>
-                                <div onClick={() => changeStateWord(2)} className={(this.state.isShowTrashIcon) ? "btn-trash active" : "btn-trash"} data-tip="Xóa" data-for="btn-level-tip" ><i className="far fa-trash-alt"></i></div>
+                                <div onClick={() => changeStateWord(1)} className={(this.state.isShowTrashIcon) ? "btn-trash active" : "btn-trash"} data-tip="Xóa" data-for="btn-level-tip" ><i className="far fa-trash-alt"></i></div>
                                 <ReactTooltip type="info" className="tooltipButton" id="btn-level-tip" wrapper="span" place="top" effect="solid" />
                                 <div className="clearfix"></div>
 

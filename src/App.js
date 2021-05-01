@@ -10,6 +10,7 @@ import Game from './pages/Game';
 import success from './assets/audio/success.wav'
 import failed from './assets/audio/wrong.wav'
 import * as actions from './actions'
+import AccountDetail from './pages/AccountDetail';
 class App extends Component {
   componentDidMount(){
     if (this.props.gameManage.finalGame) this.props.resetGameData()
@@ -47,6 +48,9 @@ class App extends Component {
                 <Route path="/game" exact>
                   {this.props.gameManage.finalGame ? <Redirect to="/" /> : null}
                   {!myToken ? <Redirect to="/login" /> : <Game />}
+                </Route>
+                <Route path="/account">
+                {!myToken ? <Redirect to="/login" /> : <AccountDetail/>}
                 </Route>
 
               </Switch>

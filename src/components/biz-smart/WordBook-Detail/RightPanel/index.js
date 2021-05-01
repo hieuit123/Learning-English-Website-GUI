@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
-import Word from './Word'
 import axios from 'axios'
-export default class RightPanel extends Component {
+import { connect } from 'react-redux'
+
+import * as actions from './../../../../actions'
+import Word from './Word'
+
+class RightPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            wordData: null
-        }
     }
     async componentDidMount() {
-        let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
-        let finalResult = result.data
-        if (finalResult.status) this.setState({ wordData: finalResult.data })
+            let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
+            let finalResult = result.data
+            if (finalResult.status) this.props.callWordsMange(actions.initWordsDataAction(finalResult.data))
     }
     render() {
         let myListWord
-        if (this.state.wordData) {
-            console.log("davao");
-            myListWord = this.state.wordData.map((word, index) => {
+        if (this.props.wordsManage.wordsData) {
+            let tmp_wordsData = this.props.wordsManage.wordsData
+            myListWord = tmp_wordsData.map((word, index) => {
                 return <Word key={index} id={word.W_Id} ipa={word.W_ipaWord} title={word.W_originalWord} example={word.W_Phrase} avatar={word.W_Avatar} translation={word.W_translatedWord} idState={word.W_idState} />
             })
         }
@@ -28,3 +29,17 @@ export default class RightPanel extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        wordsManage: state.wordsManage
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        callWordsMange: (action)=>{
+            dispatch(action)
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(RightPanel)

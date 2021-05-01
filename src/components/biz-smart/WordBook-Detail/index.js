@@ -9,7 +9,7 @@ export default class WordBookDetail extends Component {
         
         return (
             <div>
-                <ToolBar/>
+                <ToolBar id={this.props.id}/>
                 <hr className="line-full"></hr>
                 <div className="container-wb-detail">
                 <LeftPanel />

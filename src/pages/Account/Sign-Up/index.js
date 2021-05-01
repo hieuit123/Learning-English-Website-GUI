@@ -45,7 +45,6 @@ export default class SignUpForm extends Component {
         const validate = () => {
             var re = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
             let lb_Warning = document.getElementById("alertWarning")
-            alert(re.exec(this.state.AC_fullName))
             if (!re.exec(this.state.AC_fullName)) {
                 lb_Warning.innerHTML = "Họ và tên không hợp lệ!"
                 lb_Warning.style.display = "block"

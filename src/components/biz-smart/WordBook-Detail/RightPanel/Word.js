@@ -7,8 +7,8 @@ export default class Word extends Component {
             spellWord(this.props.title)
         }
         return (<>
-            <div className="word-item" onClick={handleClick}>
-                <div className="content-word" data-toggle="modal" data-target={`#popuplve${this.props.id}`}>
+            <div className="word-item" >
+                <div onClick={handleClick} className="content-word" data-toggle="modal" data-target={`#popuplve${this.props.id}`}>
                     <span>{this.props.title}</span>
                     <div className="clearfix"></div>
                     <span className="ex-sentence">{this.props.example}</span>
