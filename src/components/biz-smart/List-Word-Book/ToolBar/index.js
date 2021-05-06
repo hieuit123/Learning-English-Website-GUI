@@ -78,8 +78,6 @@ export default class ToolBar extends Component {
                     </form>
                 </div>
 
-
-
                 <div className="clearfix"></div>
             </div>
         )

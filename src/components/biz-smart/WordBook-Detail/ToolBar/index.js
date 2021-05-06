@@ -43,6 +43,7 @@ class ToolBar extends Component {
         const updateSearchResult = async (e) => {
             let myRegex = /\w+/;
             let validate = myRegex.exec(e.target.value)
+            if(e.target.value === "") validate = true
             if (validate) {
                 let option = document.getElementById("filterOption").value
                 await searchWord(e.target.value, option);

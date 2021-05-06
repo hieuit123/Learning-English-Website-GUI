@@ -4,24 +4,11 @@ import {connect} from 'react-redux'
 
 class InformationWordBookPanel extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            fullName:""
-        }
-    }
-
-    componentDidMount(){
-        if(this.props.accountManage.accountData) this.setState({fullName:this.props.accountManage.accountData.AC_fullName});
-    }
-
     render() {
-        console.log(this.state.fullName);
         return (
             <div className="container">
                 <div className="clearfix">
-                <label className="t-welcome-user float-right">Xin chào, {this.state.fullName}</label><br></br>
+                <label className="t-welcome-user float-right">Xin chào, {(this.props.accountManage.accountData)?this.props.accountManage.accountData.AC_fullName:""}</label><br></br>
                 </div>
 
                 <label className="t-guide-user">Nhấn vào chơi ngay để bắt đầu bài học</label>
