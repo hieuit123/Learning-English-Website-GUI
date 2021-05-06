@@ -15,7 +15,6 @@ export default class ToolBar extends Component {
     render() {
         async function sendWordBook(wordBook) {
             let formBody = convertPostData(wordBook)
-
             let response = await fetch(`${configUrl.NODE_SERVER_URL}/wordbook/add`, {
                 method: 'POST',
                 headers: {

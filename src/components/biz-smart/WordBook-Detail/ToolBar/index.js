@@ -32,7 +32,7 @@ class ToolBar extends Component {
             console.log("input search : "  +inputSearch + "  option : "+option);
 
             let urlRequest = `/word/search/${this.props.id}/${inputSearch}/${option}`
-            if(isNull) urlRequest = `/word/search/${this.props.id}`
+            if(isNull) urlRequest = `/word/search/###/${this.props.id}/${option}`
             
             let result = await axios.get(urlRequest)
             let finalResult = result.data
@@ -52,9 +52,6 @@ class ToolBar extends Component {
                 let option = document.getElementById("filterOption").value
                 await searchWord(e.target.value, option, isNull);
             }
-        }
-        const updateSearchResultNull = ()=>{
-
         }
         return (
             <div className="toolbar-wb-detail">
