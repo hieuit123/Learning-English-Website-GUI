@@ -56,6 +56,10 @@ export default class WordDetailPopup extends Component {
             }).then(data => data.json()).then(json => { if (json.status == false) alert("Đã có lỗi xảy ra") })
 
         }
+        const deleteWordById = ()=>{
+            let isRemove = window.confirm("Bạn chắc chắn muốn xóa từ này ?")
+            console.log(isRemove + " deleted word with id = "+ this.props.id)
+        }
         const changeStateWord = (idState) => {
             switch (idState) {
                 case 2:
@@ -99,7 +103,7 @@ export default class WordDetailPopup extends Component {
                                 <div onClick={() => changeStateWord(3)} className={(this.state.isShowDoneIcon) ? "btn-done active" : "btn-done"} data-tip="Đánh dấu từ này đã thuộc" data-for="btn-level-tip"><i className="fas fa-check fa-sm"></i></div>
                                 <div onClick={() => changeStateWord(1)} className={(this.state.isShowStarIcon) ? "btn-star active" : "btn-star"} data-tip="Ưu tiên học từ này" data-for="btn-level-tip"><i className="fas fa-star fa-sm"></i></div>
                                 <div className="btn-word-level" data-tip="Đã thuộc 70%" data-for="btn-level-tip"><i className="far fa-circle fa-sm"></i></div>
-                                <div onClick={() => changeStateWord(1)} className={(this.state.isShowTrashIcon) ? "btn-trash active" : "btn-trash"} data-tip="Xóa" data-for="btn-level-tip" ><i className="far fa-trash-alt"></i></div>
+                                <div onClick={() => deleteWordById()} className={(this.state.isShowTrashIcon) ? "btn-trash active" : "btn-trash"} data-tip="Xóa" data-for="btn-level-tip" ><i className="far fa-trash-alt"></i></div>
                                 <ReactTooltip type="info" className="tooltipButton" id="btn-level-tip" wrapper="span" place="top" effect="solid" />
                                 <div className="clearfix"></div>
 

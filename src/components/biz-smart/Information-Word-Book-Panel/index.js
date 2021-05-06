@@ -1,12 +1,27 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class InformationWordBookPanel extends Component {
+class InformationWordBookPanel extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fullName:""
+        }
+    }
+
+    componentDidMount(){
+        if(this.props.accountManage.accountData) this.setState({fullName:this.props.accountManage.accountData.AC_fullName});
+    }
+
     render() {
+        console.log(this.state.fullName);
         return (
             <div className="container">
                 <div className="clearfix">
-                <label className="t-welcome-user float-right">Xin chào, Hiếu Minh Trần!</label><br></br>
+                <label className="t-welcome-user float-right">Xin chào, {this.state.fullName}</label><br></br>
                 </div>
 
                 <label className="t-guide-user">Nhấn vào chơi ngay để bắt đầu bài học</label>
@@ -30,3 +45,11 @@ export default class InformationWordBookPanel extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      accountManage: state.accountManage
+    }
+  }
+
+export default connect(mapStateToProps,null)(InformationWordBookPanel)  

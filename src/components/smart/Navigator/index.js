@@ -7,14 +7,16 @@ const handleClick = () => {
     localStorage.setItem("accountIDlve", 'false')
     window.location = "/login";
 }
+
 export default function Navigator() {
+  
     return (
         <>
             <div className="d-flex justify-content-around">
                 <div className="zoom-style-hover">
                     <Link to="/">
-                        <div className="circle-btn-home"><i className="fas fa-user"></i></div>
-                        <label className="lb-btn-navigator">HOME</label>
+                        <div className="circle-btn-home"><i className="fas fa-home"></i></div>
+                        <label className="lb-btn-navigator">TRANG CHỦ</label>
                     </Link>
                 </div>
 
@@ -26,14 +28,7 @@ export default function Navigator() {
                 </div>
 
                 <div className="zoom-style-hover">
-                    <Link to="/news">
-                        <div className="circle-btn-news"><i className="fas fa-newspaper"></i></div>
-                        <label className="lb-btn-navigator">BÀI VIẾT<br></br>TIẾNG ANH</label>
-                    </Link>
-                </div>
-
-                <div className="zoom-style-hover">
-                    <Link to="/store">
+                    <Link to="/word-store?wordCategoryId=4">
                         <div className="circle-btn-word-store"><i className="fas fa-store-alt"></i></div>
 
                         <label className="lb-btn-navigator">CỬA HÀNG<br></br>TỪ VỰNG</label>

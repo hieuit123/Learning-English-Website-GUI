@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from './../../../../actions'
 import * as types from './../../../../constant/ACTION_TYPE'
-
+import axios from 'axios'
 class Book extends Component {
     render() {
 
@@ -10,8 +10,15 @@ class Book extends Component {
         // tempData.shift()
         // var wordbookPreview = tempData.map((value) => value + ", ")
         console.log(this.props.wordbook);
-        const handleClickItem = () => {
+        const handleClickItem = async () => {
+            console.log("start");
             this.props.onOpenBookDetail(actions.openComponentDetailAction(types.SHOW_WB_DETAIL, this.props.wordbook.WB_Id))
+            
+            let result = await axios.get("/word/getallbyidwordbook/" + this.props.wordbook.WB_Id)
+            let finalResult = result.data
+            if (finalResult.status) this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data))
+
+
         }
         return (
             <div className={this.props.color} onClick={handleClickItem} >

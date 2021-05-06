@@ -11,16 +11,42 @@ import success from './assets/audio/success.wav'
 import failed from './assets/audio/wrong.wav'
 import * as actions from './actions'
 import AccountDetail from './pages/AccountDetail';
+import WordStore from './pages/WordStore';
+import convertPostData from './utils/convertPostData'
+import * as configUrl from './assets/config/config-url'
+
 class App extends Component {
-  componentDidMount(){
-    if (this.props.gameManage.finalGame) this.props.resetGameData()
+
+  async componentDidMount() {
+    let ssId = localStorage.getItem("tokenlve")
+    let accountId = localStorage.getItem("accountIDlve")
+    let credentialAccount = {
+      AC_Id: accountId,
+      S_Value: ssId
+    }
+    let formBody = convertPostData(credentialAccount)
+    if (!this.props.accountManage.accountData) {
+      let response = await fetch(`${configUrl.NODE_SERVER_URL}/account/getone`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: formBody
+      }).then(data => data.json())
+      if (response.status === true) {
+        this.props.callInitDispatch(actions.initAccountDataAction(response.data[0]))
+        return response
+      }
+      return false;
+    }
+    if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
-  componentDidUpdate(){
-    if (this.props.gameManage.finalGame) this.props.resetGameData()
+
+  componentDidUpdate() {
+    if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
   render() {
-  
-      let myToken = localStorage.getItem("tokenlve")
+    let myToken = localStorage.getItem("tokenlve")
     return (
       <div className="App">
         <header className="App-header">
@@ -31,7 +57,7 @@ class App extends Component {
             <audio id="audio3">
               <source id="sourceAudioFailed" src={failed}></source>
             </audio>
-            <Router>
+
               <Switch>
                 <Route exact path="/" exact>
                   {!myToken ? <Redirect to="/login" /> : <Home />}
@@ -50,12 +76,14 @@ class App extends Component {
                   {!myToken ? <Redirect to="/login" /> : <Game />}
                 </Route>
                 <Route path="/account">
-                {!myToken ? <Redirect to="/login" /> : <AccountDetail/>}
+                  {!myToken ? <Redirect to="/login" /> : <AccountDetail />}
                 </Route>
-
+                <Route path="/word-store">
+                  <WordStore />
+                </Route>
               </Switch>
               {/* <AccountForm/> */}
-            </Router>
+      
           </div>
         </header>
 
@@ -68,14 +96,15 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     loginState: state.loginReducer,
-    gameManage: state.gameManage
+    gameManage: state.gameManage,
+    accountManage: state.accountManage
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    resetGameData: () => {
-      dispatch(actions.resetGameDataAction())
+    callInitDispatch: (action) => {
+      dispatch(action)
     }
   }
 }

@@ -28,7 +28,6 @@ export default class ListWordBookInside extends Component {
     }
     render() {
 
-
         let htmlWordBooks
         const colors = ['green-color', 'yellow-color', 'blue-white-color']
         if (this.state.wordBookData) {

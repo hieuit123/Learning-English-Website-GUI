@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function ExpBar() {
+export default function ExpBar(props) {
+
     return (
         <div>
             <div className="info-exp">
-                999/1000 KIM CƯƠNG
+                {props.currentExp}/{props.nextLevelExp} SAO
             </div>
             <div className="exp-bar">
                 <div className="progress" style={{ height: '25px' }}>
@@ -12,8 +13,8 @@ export default function ExpBar() {
                 </div>
             </div>
             <div className="info-level">
-                <p className="left">LV5</p>
-                <p className="right">LV6</p>
+                <p className="left">{props.currentLevel}</p>
+                <p className="right">{props.nextLevel}</p>
                 <div className="clearfix"></div>
             </div>
         </div>

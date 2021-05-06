@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { connect } from 'react-redux'
 
-import * as actions from './../../../../actions'
 import Word from './Word'
 
 class RightPanel extends Component {
     constructor(props) {
         super(props);
     }
-    async componentDidMount() {
-            let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
-            let finalResult = result.data
-            if (finalResult.status) this.props.callWordsMange(actions.initWordsDataAction(finalResult.data))
-    }
+
     render() {
         let myListWord
         if (this.props.wordsManage.wordsData) {
@@ -35,11 +29,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        callWordsMange: (action)=>{
-            dispatch(action)
-        }
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(RightPanel)
+
+export default connect(mapStateToProps,null)(RightPanel)

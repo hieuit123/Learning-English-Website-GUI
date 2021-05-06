@@ -7,6 +7,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="container">
+                <div className="row">
                 <div className="navigator col-12">
                     <Navigator />
                 </div>
@@ -15,6 +16,7 @@ export default class Home extends Component {
                 </div>
                 <div className="xl-streak-bar col-12"> 
                     <StreakBar/>
+                </div>
                 </div>
             </div>
 
