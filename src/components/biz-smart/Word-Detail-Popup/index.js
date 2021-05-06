@@ -17,17 +17,15 @@ export default class WordDetailPopup extends Component {
 
     componentDidMount() {
         let initStateWord = this.props.idState
-        console.log(this.props.idState);
         switch (initStateWord) {
             case 1:
                 this.setState({ isShowStarIcon: true });
                 break;
-            case 2:
-                this.setState({ isShowStarIcon: false });
+            case 3:
+                this.setState({ isShowDoneIcon: false })
                 break;
             case 4:
                 this.setState({ isShowDoneIcon: true })
-                break;
             case 5:
                 this.setState({ isShowDoneIcon: false });
                 this.setState({ isShowStarIcon: true });
@@ -45,7 +43,6 @@ export default class WordDetailPopup extends Component {
                 W_Id: this.props.id,
                 W_idState: idState
             }
-            console.log(idState + "HEREEEEEEEEEEEEE");
             let formBody = convertPostData(requestData)
 
             fetch(`${configUrl.NODE_SERVER_URL}/word/updatewordstate`, {
@@ -62,10 +59,8 @@ export default class WordDetailPopup extends Component {
             console.log(isRemove + " deleted word with id = " + this.props.id)
         }
         const changeStateWord = (idState) => {
-            
             switch (idState) {
                 case 1:
-
                     if (!this.state.isShowStarIcon) {
                         if (this.state.isShowDoneIcon) updateStateWord(6)
                         else updateStateWord(1)
