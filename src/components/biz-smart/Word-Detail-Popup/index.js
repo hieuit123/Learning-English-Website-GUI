@@ -27,8 +27,8 @@ export default class WordDetailPopup extends Component {
             case 4:
                 this.setState({ isShowDoneIcon: true })
             case 5:
-                this.setState({ isShowDoneIcon: false });
-                this.setState({ isShowStarIcon: true });
+                this.setState({ isShowDoneIcon: true });
+                this.setState({ isShowStarIcon: false });
                 break;
             case 6:
                 this.setState({ isShowDoneIcon: true });
@@ -61,12 +61,13 @@ export default class WordDetailPopup extends Component {
         const changeStateWord = (idState) => {
             switch (idState) {
                 case 1:
-                    if (!this.state.isShowStarIcon) {
+                    if (!this.state.isShowStarIcon) { //not show(this case) -> click star icon -> show star icon
                         if (this.state.isShowDoneIcon) updateStateWord(6)
                         else updateStateWord(1)
                     }
                     else {
-                        updateStateWord(1)
+                        if (this.state.isShowDoneIcon) updateStateWord(4)
+                        else updateStateWord(3)
                     }
                     this.setState({ isShowStarIcon: !this.state.isShowStarIcon });
                     break;
@@ -76,7 +77,8 @@ export default class WordDetailPopup extends Component {
                         else updateStateWord(4)
                     }
                     else {
-                        updateStateWord(3)
+                        if (this.state.isShowStarIcon)  updateStateWord(1)
+                        else updateStateWord(3)
                     }
                     this.setState({ isShowDoneIcon: !this.state.isShowDoneIcon });
                     break;

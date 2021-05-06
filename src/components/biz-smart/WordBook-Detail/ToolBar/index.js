@@ -28,11 +28,11 @@ class ToolBar extends Component {
             console.log(e.target.value);
            await searchWord(inputSearch,e.target.value)
         }
-        const searchWord = async (inputSearch, option, isNull) => {
+        const searchWord = async (inputSearch, option) => {
             console.log("input search : "  +inputSearch + "  option : "+option);
 
-            let urlRequest = `/word/search/${this.props.id}/${inputSearch}/${option}`
-            if(isNull) urlRequest = `/word/search/###/${this.props.id}/${option}`
+            let urlRequest = `/word/search/${inputSearch}/${this.props.id}/${option}`
+            if(inputSearch === "") urlRequest = `/word/search/tokenlveenglish/${this.props.id}/${option}`
             
             let result = await axios.get(urlRequest)
             let finalResult = result.data
@@ -41,16 +41,11 @@ class ToolBar extends Component {
             console.log(finalResult.status);
         }
         const updateSearchResult = async (e) => {
-            let isNull = false
             let myRegex = /\w+/;
             let validate = myRegex.exec(e.target.value)
-            if(e.target.value === "") {
-                validate = true
-                isNull = true
-            }
             if (validate) {
                 let option = document.getElementById("filterOption").value
-                await searchWord(e.target.value, option, isNull);
+                await searchWord(e.target.value, option);
             }
         }
         return (
