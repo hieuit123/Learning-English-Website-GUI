@@ -38,13 +38,14 @@ export default class WordDetailPopup extends Component {
                 break;
         }
     }
-    
+
     render() {
         const updateStateWord = async (idState) => {
             let requestData = {
                 W_Id: this.props.id,
                 W_idState: idState
             }
+            console.log(idState + "HEREEEEEEEEEEEEE");
             let formBody = convertPostData(requestData)
 
             fetch(`${configUrl.NODE_SERVER_URL}/word/updatewordstate`, {
@@ -56,42 +57,36 @@ export default class WordDetailPopup extends Component {
             }).then(data => data.json()).then(json => { if (json.status == false) alert("Đã có lỗi xảy ra") })
 
         }
-        const deleteWordById = ()=>{
+        const deleteWordById = () => {
             let isRemove = window.confirm("Bạn chắc chắn muốn xóa từ này ?")
-            console.log(isRemove + " deleted word with id = "+ this.props.id)
+            console.log(isRemove + " deleted word with id = " + this.props.id)
         }
         const changeStateWord = (idState) => {
+            
             switch (idState) {
-                case 2:
-                    this.setState({ isShowTrashIcon: !this.state.isShowTrashIcon });
-                    if (this.state.isShowTrashIcon) {
-                        updateStateWord(3)
-                    }
-                    else {
-                        updateStateWord(2)
-                    }
-                    break;
                 case 1:
-                    this.setState({ isShowStarIcon: !this.state.isShowStarIcon });
-                    if (this.state.isShowStarIcon) {
-                        updateStateWord(3)
-                    }
-                    else {
+
+                    if (!this.state.isShowStarIcon) {
                         if (this.state.isShowDoneIcon) updateStateWord(6)
                         else updateStateWord(1)
                     }
+                    else {
+                        updateStateWord(1)
+                    }
+                    this.setState({ isShowStarIcon: !this.state.isShowStarIcon });
                     break;
                 case 3:
-                    this.setState({ isShowDoneIcon: !this.state.isShowDoneIcon });
-                    if (this.state.isShowDoneIcon) {
-                        updateStateWord(3)
-                    }
-                    else {
+                    if (!this.state.isShowDoneIcon) {
                         if (this.state.isShowStarIcon) updateStateWord(6)
                         else updateStateWord(4)
                     }
+                    else {
+                        updateStateWord(3)
+                    }
+                    this.setState({ isShowDoneIcon: !this.state.isShowDoneIcon });
                     break;
             }
+
         }
         return (
             <div className="modal fade" id={`popuplve${this.props.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
