@@ -10,7 +10,6 @@ class InformationWordBookPanel extends Component {
                 <div className="clearfix">
                 <label className="t-welcome-user float-right">Xin chào, {(this.props.accountManage.accountData)?this.props.accountManage.accountData.AC_fullName:""}</label><br></br>
                 </div>
-
                 <label className="t-guide-user">Nhấn vào chơi ngay để bắt đầu bài học</label>
                 <hr className="line-1"></hr>
                 {/* <hr></hr> */}

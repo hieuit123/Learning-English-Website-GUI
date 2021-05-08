@@ -14,6 +14,7 @@ import AccountDetail from './pages/AccountDetail';
 import WordStore from './pages/WordStore';
 import convertPostData from './utils/convertPostData'
 import * as configUrl from './assets/config/config-url'
+import Navigator from './components/smart/Navigator';
 
 class App extends Component {
 
@@ -51,13 +52,18 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="main-layout">
-            <audio id="audio2">
-              <source id="sourceAudio" src={success}></source>
-            </audio>
-            <audio id="audio3">
-              <source id="sourceAudioFailed" src={failed}></source>
-            </audio>
-
+            <div className="container">
+              <audio id="audio2">
+                <source id="sourceAudio" src={success}></source>
+              </audio>
+              <audio id="audio3">
+                <source id="sourceAudioFailed" src={failed}></source>
+              </audio>
+              <div className="row">
+                <div className="navigator col-12">
+                  <Navigator />
+                </div>
+              </div>
               <Switch>
                 <Route exact path="/" exact>
                   {!myToken ? <Redirect to="/login" /> : <Home />}
@@ -83,7 +89,7 @@ class App extends Component {
                 </Route>
               </Switch>
               {/* <AccountForm/> */}
-      
+            </div>
           </div>
         </header>
 

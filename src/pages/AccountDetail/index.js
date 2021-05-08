@@ -8,9 +8,6 @@ export default class AccountDetail extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="navigator col-12">
-                        <Navigator/>
-                    </div>
                     <div className="account-page col-12">
                         <AccountStatusPanel isAccountPage={true} />
                     </div>

@@ -26,6 +26,7 @@ class GameMode2 extends Component {
             phraseMean: "null",
             phraseAnswer: ""
         }
+        console.log(this.props.data);
         this.setState({ phrase: this.props.data.Word.W_Phrase });
         let wrongWords = this.props.data.fourAnswer.split(";")
         let arrayPhraseAnswer = initData.phrase.split(" ")

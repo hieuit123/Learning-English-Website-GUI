@@ -6,6 +6,6 @@ export default function say(m) {
     var msg = new SpeechSynthesisUtterance(m)
     msg.voice = voices[1]
     msg.pitch = 1
-    msg.rate = 0.9
+    msg.rate = 0.8
     synth.speak(msg)
 }

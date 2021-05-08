@@ -8,9 +8,9 @@ function useQuery() {
 
 function MainDisplay(mode){
     switch(mode){
-        case "wordStore": 
+        case "bookStores": 
         break
-        case "wordCategory": 
+        case "wordCategories": 
         break
         case "wordList": 
         break

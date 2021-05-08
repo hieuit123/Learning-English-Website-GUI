@@ -12,9 +12,6 @@ class WordBook extends Component {
             <div className="container">
 
                 <div className="row">
-                    <div className="navigator col-12">
-                        <Navigator />
-                    </div>
                     <div className="account-container">
                         <AccountStatusPanel />
                     </div>
