@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navigator from '../../components/smart/Navigator'
 import GameMode1 from './GameMode1'
 import GameMode2 from './GameMode2'
 import Navigation from './navigation'
@@ -55,10 +54,7 @@ class Game extends Component {
   
         console.log(this.props.gameManage.currentQuestion + "HEREEEEEEEEEEEEEEEEE E " + this.maxLength);
         return (
-            <div className="container">
-                <div className="navigator col-12">
-                    <Navigator/>
-                </div>
+            <div>
                 <div className="col-12 container-game">
                 {(this.props.gameManage.currentQuestion <= maxLength)? <Navigation numberQuestion = {this.props.gameManage.currentQuestion} /> :null}
                     <GameQuestion/>
