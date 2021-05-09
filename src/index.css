@@ -35,7 +35,7 @@ a:hover {
 
 .container-main-content {
     background-color: white;
-    height: 72vh;
+    height: 73vh;
     border-radius: 10px;
 }
 
@@ -360,10 +360,10 @@ a:hover {
 
 .xl-streak-bar {
     background: white;
-    border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
     margin-top: 10px;
+    border-top: 5px solid #0d0221;
 }
 
 .fa-sun {
