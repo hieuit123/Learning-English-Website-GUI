@@ -1,7 +1,7 @@
 import React from 'react'
 import MiniNumberDay from './MiniNumberDay'
 
-export default function MiniStreakBar() {
+export default function MiniStreakBar(props) {
 
 var  initStreakStatus = [
         {status:"visible"},
@@ -23,7 +23,7 @@ var  initStreakStatus = [
             <MiniNumberDay day="T7" status = {initStreakStatus[5].status} />
             <MiniNumberDay day="CN" status = {initStreakStatus[6].status} />
             <div className="border-left">
-                <div className="mini-number-day-streak">7</div>
+                <div className="mini-number-day-streak">{props.streakDay}</div>
                 <div className="mini-streak-style-text">STREAK</div>
             </div>
 

@@ -7,8 +7,8 @@ export default function InformationBar(props) {
                 <img alt="avatar" src={avatar}/>
             </div>
             <div className="info-account">
-                <div className="name">TRAN MINH HIEU</div>
-                <div className="level">VÀNG</div>
+                <div className="name">{props.name}</div>
+                <div className="level">{props.level}</div>
             </div>
             <div className="clearfix"></div>
         </div>

@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class InformationWordBookPanel extends Component {
+class InformationWordBookPanel extends Component {
+
     render() {
         return (
             <div className="container">
                 <div className="clearfix">
-                <label className="t-welcome-user float-right">Xin chào, Hiếu Minh Trần!</label><br></br>
+                <label className="t-welcome-user float-right">Xin chào, {(this.props.accountManage.accountData)?this.props.accountManage.accountData.AC_fullName:""}</label><br></br>
                 </div>
-
                 <label className="t-guide-user">Nhấn vào chơi ngay để bắt đầu bài học</label>
                 <hr className="line-1"></hr>
                 {/* <hr></hr> */}
@@ -30,3 +31,11 @@ export default class InformationWordBookPanel extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      accountManage: state.accountManage
+    }
+  }
+
+export default connect(mapStateToProps,null)(InformationWordBookPanel)  

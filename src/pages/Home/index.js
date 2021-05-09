@@ -6,10 +6,7 @@ import Navigator from '../../components/smart/Navigator'
 export default class Home extends Component {
     render() {
         return (
-            <div className="container">
-                <div className="navigator col-12">
-                    <Navigator />
-                </div>
+            <div>
                 <div className="info-wb-panel col-12">
                     <InformationWordBookPanel />
                 </div>

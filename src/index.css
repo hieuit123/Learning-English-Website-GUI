@@ -197,6 +197,14 @@ a:hover {
     box-shadow: 0 0 40px #52ff33;
 }
 
+.circle-btn-home {
+    background: #1962ff;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #0263ff;
+}
+
 .circle-btn-news {
     background: #f17900;
     border-radius: 50%;
@@ -219,6 +227,11 @@ a:hover {
     width: 4em;
     height: 4em;
     box-shadow: 0 0 40px #de0d0d;
+}
+
+.circle-btn-home i {
+    font-size: 2em;
+    padding-top: 24px;
 }
 
 .fa-user {
@@ -265,9 +278,9 @@ a:hover {
 
 .info-wb-panel {
     background: white;
-    border-radius: 30px;
+    border-radius: 10px;
     padding-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .t-welcome-user {
@@ -302,9 +315,9 @@ a:hover {
 
 .info-current-wb {
     color: #202020;
-    box-shadow: 0 0 20px #444444;
+    box-shadow: 0 0 20px #44444483;
     margin-top: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 0 10px 0 10px;
 }
 
@@ -341,7 +354,7 @@ a:hover {
 
 .xl-streak-bar {
     background: white;
-    border-radius: 30px;
+    border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
     margin-top: 10px;
@@ -403,7 +416,7 @@ a:hover {
     padding-left: 15px;
     background: #ff8000;
     padding-right: 15px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 
@@ -419,15 +432,14 @@ a:hover {
         padding-top: 10px;
         width: 100%;
         border-radius: 10px;
-        margin-bottom: 10px;
     }
     .word-book-container {
         background: rgb(255, 255, 255);
         padding: 10px;
         width: 100%;
         border-radius: 10px;
-        margin-bottom: 10px;
         padding-right: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -545,12 +557,26 @@ a:hover {
     font-weight: 500;
 }
 
+#addWordBookModal {
+    color: #161616;
+}
+
+#addWordBookModal input {
+    width: 90%;
+}
+
+#addWordBookModal input:focus {
+    outline: 1px solid #001aff;
+}
+
 .add-button {
     float: left;
     font-size: 1.1em;
     padding-left: 5px;
     cursor: pointer;
     transition: transform .0.3s;
+    border: none;
+    background: white;
 }
 
 .add-button:hover {
@@ -631,6 +657,7 @@ a:hover {
 }
 
 .wb-item label {
+    cursor: pointer;
     font-weight: bold;
     margin-bottom: 3px;
 }
@@ -934,6 +961,18 @@ a:hover {
     cursor: pointer;
 }
 
+.btn-home-nav {
+    position: fixed;
+    top: 3%;
+    left: 1%;
+    width: 150px;
+    background: rgb(238, 238, 238);
+    padding: 7px 0px;
+    color: #0058dd;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
 
 /*end word detail popup */
 
@@ -956,6 +995,7 @@ a:hover {
     border-radius: 10px;
     padding: 10px;
     color: #202020;
+    min-height: 71vh;
 }
 
 .answer-row {
@@ -971,9 +1011,10 @@ a:hover {
     float: left;
     padding: 3px 10px;
     color: #20d400;
-    border: 5px solid rgb(194, 194, 194);
     border-radius: 10px;
+    border: 2px solid #00be0a;
     font-weight: 600;
+    box-shadow: 2px 3px #0ba713b4;
 }
 
 .btn-guide {
@@ -987,18 +1028,19 @@ a:hover {
 
 .btn-guide:hover {
     color: #1bb600;
-    text-shadow: 0 2px 5px rgba(82, 255, 2, 0.473), 0 2px 5px rgba(9, 255, 0, 0.459);
-    transition: 0.1s;
+    transition: 0.2s;
+    transform: scale(1.18);
 }
 
 .star-info {
     float: right;
-    border: 5px solid #d6d6d6;
+    border: 2px solid #f8e800;
+    box-shadow: 2px 3px #e2d302;
     border-radius: 10px;
-    font-size: 27px;
+    font-size: 25pxpx;
     font-weight: 600;
     color: #ffd900;
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 
 .star-info i {
@@ -1164,17 +1206,145 @@ a:hover {
     width: 80%;
 }
 
-.gameMode2 img {
-    height: 120px;
+.gameMode2 .iGameMode2 {
+    color: #10c500;
+    cursor: pointer;
+    border: 2px solid #999999;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.gameMode2 .iGameMode2:hover {
+    color: #0ead00;
+    border: 2px solid #10c500;
 }
 
 .answer-container {
     width: 90%;
+    background: white;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 110px;
 }
 
 .question-container {
-    margin-top: 5px;
     width: 90%;
+    background: white;
+    margin: auto;
+    height: 130px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.fluid-section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.qa-container {
+    float: left;
+    font-size: large;
+    background: #fdfdfd;
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: #e5e5e5;
+    color: #3b3b3b;
+}
+
+.qa-container:hover {
+    border: 2px solid #00f10c;
+    box-shadow: 2px 3px #0ba713b4;
+}
+
+.qa-container.active {
+    border: 2px solid #00f10c;
+    box-shadow: 2px 3px #0ba713b4;
+}
+
+button:focus {
+    outline: 0px;
+}
+
+.line-gameMode2 {
+    height: 2px;
+    width: 98%;
+    background: rgb(194, 194, 194);
+    margin: 8px auto;
+}
+
+.result-game {
+    width: 60%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.result-game .red {
+    color: #da4453;
+    float: right;
+}
+
+.result-game .green {
+    color: #3adb15;
+    float: left;
+}
+
+.result-game span.green {
+    color: #3adb15;
+    float: left;
+    font-size: 5em;
+    margin-left: 2.6rem;
+}
+
+.result-game span.red {
+    color: #da4453;
+    float: right;
+    font-size: 5em;
+    margin-right: 2.6rem;
+}
+
+.added-star span {
+    font-size: 3rem;
+    color: #383838;
+    padding-top: 5px;
+}
+
+.added-star i {
+    color: rgb(243, 228, 11);
+    font-size: 2.7rem;
+}
+
+.footer-game {
+    width: 56%;
+    margin: auto;
+    font-weight: bold;
+    color: white;
+}
+
+.continue-game-btn {
+    float: left;
+    background-color: #3adb15;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.continue-game-btn:hover {
+    background-color: #2dce08;
+    cursor: pointer;
+}
+
+.end-game-btn {
+    float: right;
+    border-radius: 10px;
+    background-color: #da4453;
+    padding: 10px;
+}
+
+.end-game-btn:hover {
+    background-color: #c5303f;
+    cursor: pointer;
 }
 
 
@@ -1182,3 +1352,28 @@ a:hover {
 
 
 /* end game */
+
+
+/* account page */
+
+.account-page {
+    background: white;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+
+/* end account page */
+
+
+/* start word store */
+
+.book-list {
+    width: 100%;
+    height: 71vh;
+    padding: 10px;
+}
+
+
+/* end word store */
