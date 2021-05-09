@@ -47,7 +47,10 @@ class App extends Component {
     if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
   render() {
+    let showComponentClass = "row container-main-content"
     let myToken = localStorage.getItem("tokenlve")
+    if(!myToken) showComponentClass= ""
+
     return (
       <div className="App">
         <header className="App-header">
@@ -64,7 +67,7 @@ class App extends Component {
                   <Navigator />
                 </div>
               </div>
-              <div className="row container-main-content">
+              <div className={showComponentClass}>
               <Switch>
                 <Route exact path="/" exact>
                   {!myToken ? <Redirect to="/login" /> : <Home />}
