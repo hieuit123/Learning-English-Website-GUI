@@ -6,7 +6,7 @@ class InformationWordBookPanel extends Component {
 
     render() {
         return (
-            <div className="container">
+            <>
                 <div className="clearfix">
                 <label className="t-welcome-user float-right">Xin chào, {(this.props.accountManage.accountData)?this.props.accountManage.accountData.AC_fullName:""}</label><br></br>
                 </div>
@@ -27,7 +27,7 @@ class InformationWordBookPanel extends Component {
                     </div>
                     <label className="info-current-wb"> BẠN ĐÃ THÊM ĐƯỢC <strong>35</strong> TỪ VÀO HÔM NAY</label>
                 </div>
-            </div>
+            </>
         )
     }
 }

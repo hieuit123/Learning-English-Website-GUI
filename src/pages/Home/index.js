@@ -6,14 +6,14 @@ import Navigator from '../../components/smart/Navigator'
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <>
                 <div className="info-wb-panel col-12">
                     <InformationWordBookPanel />
                 </div>
                 <div className="xl-streak-bar col-12"> 
                     <StreakBar/>
                 </div>
-            </div>
+            </>
 
         )
     }

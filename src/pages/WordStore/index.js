@@ -21,7 +21,7 @@ export default function WordStore() {
     let { path, url } = useRouteMatch();
     let query = useQuery();
     return (
-        <div>
+        <>
             <Switch>
                 <Route exact path={path}>
                     <BooksList/>
@@ -33,7 +33,7 @@ export default function WordStore() {
                     <WordsList/>
                 </Route>
             </Switch>
-        </div>
+        </>
     )
 }
 

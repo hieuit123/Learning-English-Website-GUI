@@ -64,6 +64,7 @@ class App extends Component {
                   <Navigator />
                 </div>
               </div>
+              <div className="row container-main-content">
               <Switch>
                 <Route exact path="/" exact>
                   {!myToken ? <Redirect to="/login" /> : <Home />}
@@ -88,6 +89,7 @@ class App extends Component {
                   <WordStore />
                 </Route>
               </Switch>
+              </div>
               {/* <AccountForm/> */}
             </div>
           </div>
