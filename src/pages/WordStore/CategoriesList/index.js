@@ -6,18 +6,20 @@ export default function CategoriesList() {
         <div className="container">
             <ToolBar />
             <div className="row g-2 container-book-list">
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
-                  <CategoriesOfBook/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
+                  <CategoriesOfBook name="Cây cối"/>
             </div>
         </div>
     )

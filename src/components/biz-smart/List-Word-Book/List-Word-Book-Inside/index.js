@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 
 class ListWordBookInside extends Component {
 
-
     render() {
 
         let htmlWordBooks

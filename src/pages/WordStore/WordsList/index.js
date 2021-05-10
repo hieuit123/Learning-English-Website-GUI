@@ -11,18 +11,21 @@ export default function WordsList() {
         <div className="container">
             <ToolBar />
             <div className="row g-2 container-book-list">
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
-            <WordOfCategory/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
+            <WordOfCategory originalWord="blue sky"/>
             </div>
         </div>
     )

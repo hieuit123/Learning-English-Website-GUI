@@ -16,7 +16,6 @@ class FinalPanel extends Component {
         let arrayFailedAnswer = []
         let questionData = this.props.gameManage.questionData
         let arrayCorrectAnswer = this.props.gameManage.arrayCorrectAnswer
-        let isArrayCorrectNull
 
         for (let i in questionData) {
             if (!this.props.gameManage.arrayCorrectAnswer) break
@@ -28,13 +27,12 @@ class FinalPanel extends Component {
             })
             if (flagFailed) arrayFailedAnswer.push(questionData[i].Word.W_Id) // if word not true -> add to array failed array
         }
-        let myResult = arrayCorrectAnswer + ";" + arrayFailedAnswer
-        console.log("from:" + myResult + "end")
+        console.log("ket qua that bai: "+arrayFailedAnswer.toString());
+        console.log("ket qua thanh cong: "+arrayCorrectAnswer.toString());
         this.setState({
             numberCorrectAnswer: arrayCorrectAnswer.length,
             numberFailedAnswer: questionData.length - arrayCorrectAnswer.length
         })
-        console.log("so cau sai");
     }
     render() {
         const handleEndGame = () => {
