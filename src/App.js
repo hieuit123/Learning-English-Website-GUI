@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 import Home from './pages/Home';
 import AccountForm from './pages/Account'
@@ -26,7 +27,15 @@ class App extends Component {
       S_Value: ssId
     }
     let formBody = convertPostData(credentialAccount)
-    if (!this.props.accountManage.accountData) {
+    if (!this.props.accountManage.wordbookData) {// init word book
+      let accountID = localStorage.getItem("accountIDlve")
+      let result = await axios.get("/wordbook/getallbyidaccount/" + accountID)
+      let finalResult = result.data
+      console.log(finalResult);
+      if (finalResult.status)  this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
+    }
+
+    if (!this.props.accountManage.accountData) { //init account
       let response = await fetch(`${configUrl.NODE_SERVER_URL}/account/getone`, {
         method: 'POST',
         headers: {
@@ -40,7 +49,6 @@ class App extends Component {
       }
       return false;
     }
-    if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
 
   componentDidUpdate() {
@@ -49,7 +57,7 @@ class App extends Component {
   render() {
     let showComponentClass = "row container-main-content"
     let myToken = localStorage.getItem("tokenlve")
-    if(!myToken) showComponentClass= ""
+    if (!myToken) showComponentClass = ""
 
     return (
       <div className="App">
@@ -68,30 +76,30 @@ class App extends Component {
                 </div>
               </div>
               <div className={showComponentClass}>
-              <Switch>
-                <Route exact path="/" exact>
-                  {!myToken ? <Redirect to="/login" /> : <Home />}
-                </Route>
+                <Switch>
+                  <Route exact path="/" exact>
+                    {!myToken ? <Redirect to="/login" /> : <Home />}
+                  </Route>
 
-                <Route exact path="/login" exact>
-                  {!myToken ? <AccountForm /> : <Redirect to="/" />}
-                </Route>
+                  <Route exact path="/login" exact>
+                    {!myToken ? <AccountForm /> : <Redirect to="/" />}
+                  </Route>
 
-                <Route path="/manage" exact>
-                  {!myToken ? <Redirect to="/login" /> : <WordBook />}
-                </Route>
+                  <Route path="/manage" exact>
+                    {!myToken ? <Redirect to="/login" /> : <WordBook />}
+                  </Route>
 
-                <Route path="/game" exact>
-                  {this.props.gameManage.finalGame ? <Redirect to="/" /> : null}
-                  {!myToken ? <Redirect to="/login" /> : <Game />}
-                </Route>
-                <Route path="/account">
-                  {!myToken ? <Redirect to="/login" /> : <AccountDetail />}
-                </Route>
-                <Route path="/word-store">
-                  <WordStore />
-                </Route>
-              </Switch>
+                  <Route path="/game" exact>
+                    {this.props.gameManage.finalGame ? <Redirect to="/" /> : null}
+                    {!myToken ? <Redirect to="/login" /> : <Game />}
+                  </Route>
+                  <Route path="/account">
+                    {!myToken ? <Redirect to="/login" /> : <AccountDetail />}
+                  </Route>
+                  <Route path="/word-store">
+                    <WordStore />
+                  </Route>
+                </Switch>
               </div>
               {/* <AccountForm/> */}
             </div>
@@ -108,7 +116,7 @@ const mapStateToProps = (state) => {
   return {
     loginState: state.loginReducer,
     gameManage: state.gameManage,
-    accountManage: state.accountManage
+    accountManage: state.accountManage,
   }
 }
 

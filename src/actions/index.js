@@ -59,3 +59,9 @@ export const initAccountDataAction = (data) => {
         accountData: data
     }
 }
+export const initWordbookDataAction = (data) => {
+    return {
+        type: types.INIT_WORDBOOK_DATA,
+        wordbookData: data
+    }
+}

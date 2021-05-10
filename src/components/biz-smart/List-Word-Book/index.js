@@ -3,25 +3,13 @@ import ListWordBookInside from './List-Word-Book-Inside/index.js'
 import ToolBar from './ToolBar'
 
 export default class ListWordBook extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isReload : false
-        }
-    }
     render() {
-        const handleReloadListWordBook = ()=>{
-            this.setState({isReload:true});
-        }
-        const handleBreakReloadListWordBook = ()=>{
-            this.setState({isReload:false})
-        }
         return (
             <div>
-                <ToolBar reload = {()=>handleReloadListWordBook()}/>
+                <ToolBar/>
                 <hr className="line-full"></hr>
                 <div className="container-right-panel">
-                <ListWordBookInside isReload={this.state.isReload} breakReload = {()=>handleBreakReloadListWordBook()}/>
+                <ListWordBookInside/>
                 </div>
             </div>
         )

@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import ReactTooltip from "react-tooltip";
+import { connect } from 'react-redux'
+import axios from 'axios'
 
+import * as actions from './../../../../actions'
 import * as configUrl from './../../../../assets/config/config-url'
 import convertPostData from './../../../../utils/convertPostData'
 
-export default class ToolBar extends Component {
+class ToolBar extends Component {
     constructor(props) {
         super(props);
         this.setState({
             searchValue: null
         });
     }
-
     render() {
         async function sendWordBook(wordBook) {
             let formBody = convertPostData(wordBook)
@@ -22,7 +24,7 @@ export default class ToolBar extends Component {
                 },
                 body: formBody
             }).then(data => data.json())
-            if(response.status === true) {
+            if (response.status === true) {
                 return true
             }
             return false
@@ -30,16 +32,21 @@ export default class ToolBar extends Component {
         var handleSearchClick = () => {
             alert("Clicked")
         }
-        const saveWordBook = async()=>{
+        const saveWordBook = async () => {
             let accountId = localStorage.getItem("accountIDlve")
             let nameWordBook = document.getElementById("addWordBookInput").value
             let newWordBookData = {
-                WB_Name : nameWordBook,
-                WB_idAccount : accountId
+                WB_Name: nameWordBook,
+                WB_idAccount: accountId
             }
             let addWordStatus = await sendWordBook(newWordBookData)
-            if(addWordStatus) this.props.reload()
-            
+            if (addWordStatus) {
+                let accountID = localStorage.getItem("accountIDlve")
+                let result = await axios.get("/wordbook/getallbyidaccount/" + accountID)
+                let finalResult = result.data
+                if (finalResult.status) this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
+            }
+
         }
         return (
             <div className="right-word-book">
@@ -58,10 +65,10 @@ export default class ToolBar extends Component {
                             </div>
                             <div className="modal-body">
                                 <input id="addWordBookInput" placeholder="Tên sổ từ" />
-            </div>
+                            </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                                <button onClick={()=>saveWordBook()} type="button" data-dismiss="modal" className="btn btn-primary">Lưu</button>
+                                <button onClick={() => saveWordBook()} type="button" data-dismiss="modal" className="btn btn-primary">Lưu</button>
                             </div>
                         </div>
                     </div>
@@ -83,3 +90,12 @@ export default class ToolBar extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        callInitDispatch:(action)=>{
+            dispatch(action)
+        }
+    }
+}
+export default connect(null, mapDispatchToProps)(ToolBar)

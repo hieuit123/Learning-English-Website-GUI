@@ -7,18 +7,18 @@ export default function BooksList() {
         <div className="container">
             <ToolBar />
             <div className="row g-2 container-book-list">
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
-                    <BookOfStore name="3000 từ thông dụng" />
+                    <BookOfStore name="3000 từ thông dụng nhất trong tiếng anh" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
+                    <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>
             </div>
         </div>
     )

@@ -1396,10 +1396,53 @@ button:focus {
 }
 
 .book-of-store {
-    background-color: #001aff;
-    margin-top: 10px;
+    background-color: white;
+    margin-bottom: 25px;
+    height: 250px;
+    min-height: min-content;
+    cursor: pointer;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+.book-of-store:hover {
+    box-shadow: 5px 5px 5px 5px #83838363;
+}
+
+.book-of-store .name {
+    margin: auto;
+    white-space: nowrap;
+    width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.img-book {
+    max-height: fit-content;
+}
+
+.img-book img {
+    height: 210px;
+    width: auto;
+}
+
+.category-of-book {
+    background-color: #626262;
+    margin-bottom: 25px;
     height: 200px;
     min-height: min-content;
+    cursor: pointer;
+    color: white;
+}
+
+.word-of-category {
+    background-color: #626262;
+    margin-bottom: 25px;
+    height: 200px;
+    min-height: min-content;
+    cursor: pointer;
 }
 
 .toolbar-store {
