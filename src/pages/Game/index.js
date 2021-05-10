@@ -29,9 +29,8 @@ class Game extends Component {
         }
 
         const GameQuestion = () => {
-            console.log(this.props.gameManage.currentQuestion + "HEREEEEEEEEEEEEEEEEE E ");
+            console.log(this.props.gameManage.currentQuestion + "HEREEEEEEEEEEEEEEEEEE");
             if (this.props.gameManage.questionData) {
-                console.log("Da vao khuc loi nay");
                 let currentQuestion = this.props.gameManage.currentQuestion
                 let gameData = this.props.gameManage.questionData
                 maxLength = gameData.length
@@ -56,14 +55,11 @@ class Game extends Component {
             return null
         }
   
-
         return (
-            <div>
-                <div className="col-12 container-game">
+                <div className="container game-container">
                 {(this.props.gameManage.currentQuestion <= maxLength)? <Navigation numberQuestion = {this.props.gameManage.currentQuestion} /> :null}
                     <GameQuestion/>
                 </div>
-            </div>
         )
     }
 }

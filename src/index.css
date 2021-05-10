@@ -996,12 +996,8 @@ a:hover {
 
 /* start game */
 
-.container-game {
-    background: white;
-    border-radius: 10px;
+.game-container {
     padding: 10px;
-    color: #202020;
-    min-height: 71vh;
 }
 
 .answer-row {
