@@ -1450,7 +1450,7 @@ button:focus {
 .category-of-book-front {
     background-color: #ffffff;
     margin-bottom: 25px;
-    height: 200px;
+    height: 210px;
     min-height: min-content;
     cursor: pointer;
     color: white;
@@ -1464,7 +1464,7 @@ button:focus {
 }
 
 .category-of-book-front img {
-    max-height: 150px;
+    max-height: 145px;
 }
 
 .category-of-book-front div {
@@ -1480,7 +1480,7 @@ button:focus {
 .category-of-book-back {
     background-color: #ffffff;
     margin-bottom: 25px;
-    height: 200px;
+    height: 210px;
     min-height: min-content;
     cursor: pointer;
     color: white;
@@ -1498,6 +1498,12 @@ button:focus {
     color: #001aff;
     width: 90%;
     margin: auto;
+}
+
+.category-of-book-front span {
+    color: #535353;
+    width: 80%;
+    font-size: large;
 }
 
 .category-of-book-back select {

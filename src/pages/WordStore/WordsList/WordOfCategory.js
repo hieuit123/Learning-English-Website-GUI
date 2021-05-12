@@ -31,6 +31,7 @@ class WordOfCategory extends Component {
                     <div className="category-of-book-front" onClick={handleClick}>
                         <img src="https://i.pinimg.com/736x/6a/aa/fe/6aaafefd23a9955c602ca8892d7f77c2.jpg"/>
                         <div>{this.props.originalWord}</div>
+                        <span>(v)</span>
                     </div>
                     </>
                     <>
