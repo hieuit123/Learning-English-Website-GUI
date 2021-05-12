@@ -66,3 +66,8 @@ export const initWordbookDataAction = (data) => {
         wordbookData: data
     }
 }
+export const resetWordbookDataAction = () => {
+    return {
+        type: types.RESET_WORDS_DATA,
+    }
+}

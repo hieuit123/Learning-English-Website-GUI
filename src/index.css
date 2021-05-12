@@ -663,6 +663,18 @@ a:hover {
     transition: 0.2s;
 }
 
+.wb-item button {
+    float: right;
+    color: #2356ff;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wb-item button:hover {
+    color: #818181;
+}
+
 .wb-item label {
     cursor: pointer;
     font-weight: bold;
@@ -775,6 +787,11 @@ a:hover {
 
 .container-wb-detail {
     width: 100%;
+}
+
+.right-panel-wb-detail img {
+    width: 100%;
+    left: 0;
 }
 
 .word-item {
