@@ -364,6 +364,7 @@ a:hover {
     padding-top: 10px;
     margin-top: 10px;
     border-top: 5px solid #0d0221;
+    border-radius: 10px;
 }
 
 .fa-sun {
@@ -1401,6 +1402,7 @@ button:focus {
     font-size: large;
     border-radius: 10px;
     margin-top: 3px;
+    border: 1px solid #b3b3b35d;
 }
 
 .book-of-store:hover {
@@ -1424,13 +1426,84 @@ button:focus {
     width: auto;
 }
 
-.category-of-book {
-    background-color: #626262;
+.category-of-book-front {
+    background-color: #ffffff;
     margin-bottom: 25px;
     height: 200px;
     min-height: min-content;
     cursor: pointer;
     color: white;
+    border: 1px solid #bebebe;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.category-of-book-front:hover {
+    box-shadow: 2px 2px 2px 1px #83838363;
+}
+
+.category-of-book-front img {
+    max-height: 150px;
+}
+
+.category-of-book-front div {
+    color: #001aff;
+    font-size: large;
+    white-space: nowrap;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto;
+}
+
+.category-of-book-back {
+    background-color: #ffffff;
+    margin-bottom: 25px;
+    height: 200px;
+    min-height: min-content;
+    cursor: pointer;
+    color: white;
+    border: 1px solid #bebebe;
+    position: relative;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.category-of-book-back:hover {
+    box-shadow: 2px 2px 2px 1px #83838363;
+}
+
+.category-of-book-back div {
+    color: #001aff;
+    width: 90%;
+    margin: auto;
+}
+
+.category-of-book-back select {
+    position: absolute;
+    width: 90%;
+    font-size: large;
+    bottom: 45px;
+    left: 0;
+    margin-left: 8px;
+    border-radius: 5px;
+}
+
+.category-of-book-back button {
+    position: absolute;
+    width: 90%;
+    font-size: large;
+    bottom: 5px;
+    left: 0;
+    margin-left: 8px;
+    background-color: #22da00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.category-of-book-back button:hover {
+    background-color: #1fcc00;
 }
 
 .word-of-category {
@@ -1443,7 +1516,18 @@ button:focus {
 
 .toolbar-store {
     color: #161616;
+    padding: 10px;
 }
+
+.toolbar-store span {
+    float: left;
+}
+
+
+/* start word flip */
+
+
+/* end word flip */
 
 
 /* end word store */

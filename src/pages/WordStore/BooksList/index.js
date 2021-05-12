@@ -5,7 +5,7 @@ import BookOfStore from './BookOfStore'
 export default function BooksList() {
     return (
         <div className="container">
-            <ToolBar />
+            <ToolBar title="CỬA HÀNG TỪ VỰNG" />
             <div className="row g-2 container-book-list">
                     <BookOfStore name="3000 từ thông dụng nhất trong tiếng anh" link="localhost:3000/word-store/2"/>
                     <BookOfStore name="3000 từ thông dụng" link="localhost:3000/word-store/2"/>

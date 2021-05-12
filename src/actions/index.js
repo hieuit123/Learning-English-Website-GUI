@@ -46,10 +46,11 @@ export const addCorrectAnswerIDAction = (correctAnswerID) => {
 export const backToQuestionOne = () => {
     return { type: types.BACK_TO_QUESTION_ONE }
 }
-export const initWordsDataAction = (data) => {
+export const initWordsDataAction = (data,stateData) => {
     return {
         type: types.INIT_WORDS_DATA,
-        wordsData: data
+        wordsData: data,
+        statesWordbook:stateData
     }
 }
 

@@ -12,10 +12,15 @@ class RightPanel extends Component {
         this.props.callWordsMange(actions.initWordsDataAction(null))
     }
     render() {
+        //init word data
         const initWordsData = async ()=>{
             let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
             let finalResult = result.data
-            if (finalResult.status) this.props.callWordsMange(actions.initWordsDataAction(finalResult.data))
+            let resultStateData = await axios.get("/word/statisticsByIdWordBook/"+this.props.id)
+            let finalResultStateData = resultStateData.data
+            if (finalResult.status && finalResultStateData.status) {
+                this.props.callWordsMange(actions.initWordsDataAction(finalResult.data,finalResultStateData))
+            }
         }
 
         let myListWord

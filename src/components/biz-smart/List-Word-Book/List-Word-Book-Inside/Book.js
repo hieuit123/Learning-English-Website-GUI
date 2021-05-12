@@ -16,8 +16,14 @@ class Book extends Component {
             
             let result = await axios.get("/word/getallbyidwordbook/" + this.props.wordbook.WB_Id)
             let finalResult = result.data
-            if (finalResult.status) this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data))
-
+            let resultStateData = await axios.get("/word/statisticsByIdWordBook/"+this.props.wordbook.WB_Id)
+            let finalResultStateData = resultStateData.data
+            console.log(finalResultStateData);
+      
+            if (finalResult.status && finalResultStateData.status) {
+                console.log(finalResultStateData);
+                this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data, finalResultStateData))
+            }
 
         }
         return (
