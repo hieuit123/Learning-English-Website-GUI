@@ -74,7 +74,7 @@ class ToolBar extends Component {
                     </div>
                 </div>
                 <ReactTooltip className="tooltipButton" id="addButtonTip" place="bottom" effect="solid" />
-
+{/* 
                 <div className="btn-filter" onClick={handleSearchClick}> <i className="fas fa-filter fa-xs"></i> </div>
 
                 <div className="btn-search" onClick={handleSearchClick}><i className="fas fa-search fa-xs"></i></div>
@@ -83,7 +83,7 @@ class ToolBar extends Component {
                     <form onSubmit={handleSearchClick}>
                         <input type="text" id="inputSearch" className="form-control-search" placeholder="Tìm kiếm ...." onChange={e => this.setState({ searchValue: e.target.value })} />
                     </form>
-                </div>
+                </div> */}
 
                 <div className="clearfix"></div>
             </div>

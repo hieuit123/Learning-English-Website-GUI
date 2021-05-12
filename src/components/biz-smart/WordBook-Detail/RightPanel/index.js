@@ -11,7 +11,7 @@ class RightPanel extends Component {
         super(props);
         this.state = {
             labelNullWords: null,
-            classLoadingPanel:"show"
+            classLoadingPanel: "show"
         }
     }
 
@@ -27,29 +27,38 @@ class RightPanel extends Component {
             let resultStateData = await axios.get("/word/statisticsByIdWordBook/" + this.props.id)
             let finalResultStateData = resultStateData.data
             if (finalResult.status && finalResultStateData.status) {
-                this.setState({classLoadingPanel:"hide-component"}) // hide loading panel
+                this.setState({ classLoadingPanel: "hide-component" }) // hide loading panel
                 this.props.callWordsMange(actions.initWordsDataAction(finalResult.data, finalResultStateData))
             }
             else {
-                this.setState({ labelNullWords: "Bạn chưa thêm từ vựng vào sổ từ này.",
-                                classLoadingPanel:"hide-component"});
+                this.setState({
+                    labelNullWords: "Bạn chưa thêm từ vựng vào sổ từ này.",
+                    classLoadingPanel: "hide-component"
+                });
             }
         }
         let myListWord
-        if (this.props.wordsManage.wordsData) {
-            let tmp_wordsData = this.props.wordsManage.wordsData
-            myListWord = tmp_wordsData.map((word, index) => {
-                return <Word key={index} id={word.W_Id} ipa={word.W_ipaWord} title={word.W_originalWord} example={word.W_Phrase} avatar={word.W_Avatar} translation={word.W_translatedWord} idState={word.W_idState} />
-            })            
+        if (this.props.wordsManage.wordsData !== "notFoundWords") {
+
+            if (this.props.wordsManage.wordsData !== null) {
+                console.log("object");
+                let tmp_wordsData = this.props.wordsManage.wordsData
+                myListWord = tmp_wordsData.map((word, index) => {
+                    return <Word key={index} id={word.W_Id} ipa={word.W_ipaWord} title={word.W_originalWord} example={word.W_Phrase} avatar={word.W_Avatar} translation={word.W_translatedWord} idState={word.W_idState} />
+                })
+            }
+            else {
+                initWordsData()
+            }
         }
-        else {
-            initWordsData()
+        else{
+            myListWord = "Không có kết quả"
         }
         // if (this.state.labelNullWords !== '') classLoadingPanel = "hide-component"
         return (
             <div className="right-panel-wb-detail">
                 <img className={this.state.classLoadingPanel} src={loadingIcon} />
-                {myListWord}
+                { (this.state.classLoadingPanel === "hide-component") ? myListWord : ""}
                 {this.state.labelNullWords}
             </div>
         )

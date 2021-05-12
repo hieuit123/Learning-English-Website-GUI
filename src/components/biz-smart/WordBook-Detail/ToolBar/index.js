@@ -38,7 +38,8 @@ class ToolBar extends Component {
             let finalResult = result.data
             
             if (finalResult.status) this.props.callDispatch(actions.initWordsDataAction(finalResult.data))
-            console.log(finalResult.status);
+            else this.props.callDispatch(actions.initWordsDataAction("notFoundWords"))
+            
         }
         const updateSearchResult = async (e) => {
             let myRegex = /\w+/;
