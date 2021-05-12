@@ -20,6 +20,10 @@ code {
     animation: glow 1s ease-in-out infinite alternate;
 }
 
+.color-text-default {
+    color: #444444;
+}
+
 .navigator a {
     color: white;
     text-decoration: none;

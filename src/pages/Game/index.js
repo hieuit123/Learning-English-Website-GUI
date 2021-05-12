@@ -29,7 +29,7 @@ class Game extends Component {
         }
 
         const GameQuestion = () => {
-            console.log(this.props.gameManage.currentQuestion + "HEREEEEEEEEEEEEEEEEEE");
+            console.log(this.props.gameManage.questionData + "HEREEEEEEEEEEEEEEEEEE");
             if (this.props.gameManage.questionData) {
                 let currentQuestion = this.props.gameManage.currentQuestion
                 let gameData = this.props.gameManage.questionData
@@ -52,7 +52,7 @@ class Game extends Component {
                     //show component final game, and ask user , do you continue game or exit(go to home)
                 }
             }
-            return null
+            return <h3 className="color-text-default"> Bạn chưa thêm từ vào sổ từ</h3>
         }
   
         return (
