@@ -21,7 +21,10 @@ class Book extends Component {
                 console.log(finalResultStateData);
                 if (finalResult.status && finalResultStateData.status) {
                     console.log(finalResultStateData);
-                    this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data, finalResultStateData))
+                    this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data, finalResultStateData, this.props.wordbook.WB_Name))
+                }
+                else{
+                    this.props.onOpenBookDetail(actions.initWordsDataAction(null, null, this.props.wordbook.WB_Name))                    
                 }
             }
             isClickButton = false
@@ -29,6 +32,9 @@ class Book extends Component {
         }
 
         const handleRemove = () => {
+            //remove wordbook
+            let confirmRemove = window.confirm("Bạn chắc chắn muốn xóa sổ từ này?")
+            if(confirmRemove) alert("Đã xóa")
             isClickButton = true
         }
         return (

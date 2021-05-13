@@ -21,6 +21,7 @@ class RightPanel extends Component {
 
     render() {
         //init word data
+
         const initWordsData = async () => {
             let result = await axios.get("/word/getallbyidwordbook/" + this.props.id)
             let finalResult = result.data

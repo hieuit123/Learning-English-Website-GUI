@@ -25,7 +25,7 @@ class WordOfCategory extends Component {
             
         }
         return (
-            <div className="col-2 col-6-sm">
+            <div className="col col-lg-3 col-sm-4 col-xl-2">
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                     <>
                     <div className="category-of-book-front" onClick={handleClick}>

@@ -29,9 +29,7 @@ class ToolBar extends Component {
             }
             return false
         }
-        var handleSearchClick = () => {
-            alert("Clicked")
-        }
+
         const saveWordBook = async () => {
             let accountId = localStorage.getItem("accountIDlve")
             let nameWordBook = document.getElementById("addWordBookInput").value

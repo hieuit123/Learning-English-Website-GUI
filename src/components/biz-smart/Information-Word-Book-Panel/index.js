@@ -16,7 +16,7 @@ class InformationWordBookPanel extends Component {
                 <div>
                     <div className="d-flex justify-content-around">
                         <div className="container-word-number">
-                            <div className="word-number">35</div>
+                            <div className="word-number">{(this.props.accountManage.accountData)?this.props.accountManage.accountData.analyticData.totalWordToday:"0"}</div>
                         </div>
                         <Link to="/game">
                         <div className="btn-play-game">
@@ -25,7 +25,7 @@ class InformationWordBookPanel extends Component {
                         </div>
                         </Link>
                     </div>
-                    <label className="info-current-wb"> BẠN ĐÃ THÊM ĐƯỢC <strong>35</strong> TỪ VÀO HÔM NAY</label>
+                    <label className="info-current-wb"> BẠN ĐÃ THÊM ĐƯỢC <strong>{(this.props.accountManage.accountData)?this.props.accountManage.accountData.analyticData.totalWordToday:"0"}</strong> TỪ VÀO HÔM NAY</label>
                 </div>
             </>
         )

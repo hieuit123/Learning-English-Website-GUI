@@ -28,8 +28,8 @@ class App extends Component {
     }
     let formBody = convertPostData(credentialAccount)
     if (!this.props.accountManage.wordbookData) {// init word book
-      let accountID = localStorage.getItem("accountIDlve")
-      let result = await axios.get("/wordbook/getallbyidaccount/" + accountID)
+
+      let result = await axios.get("/wordbook/getallbyidaccount/" + accountId)
       let finalResult = result.data
       console.log(finalResult);
       if (finalResult.status)  this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
@@ -43,8 +43,13 @@ class App extends Component {
         },
         body: formBody
       }).then(data => data.json())
+      let analyticResult = await axios.get("word/getAnalyticWordByIdAccount/"+ accountId)
+      
       if (response.status === true) {
-        this.props.callInitDispatch(actions.initAccountDataAction(response.data[0]))
+        let initDataAccount = response.data[0]
+        let analyticData = analyticResult.data.data
+        if(analyticResult.data.status) initDataAccount = {...initDataAccount, analyticData}
+        this.props.callInitDispatch(actions.initAccountDataAction(initDataAccount))
         return response
       }
       return false;
