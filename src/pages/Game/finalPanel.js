@@ -27,8 +27,8 @@ class FinalPanel extends Component {
             })
             if (flagFailed) arrayFailedAnswer.push(questionData[i].Word.W_Id) // if word not true -> add to array failed array
         }
-        let stringCorrectAnswer = (arrayCorrectAnswer !== "") ? arrayCorrectAnswer.toString(): 0
-        let stringFailedAnswer = (arrayFailedAnswer !=="") ? arrayFailedAnswer.toString(): 0
+        let stringCorrectAnswer = (arrayCorrectAnswer != "") ? arrayCorrectAnswer.toString(): 0
+        let stringFailedAnswer = (arrayFailedAnswer !="") ? arrayFailedAnswer.toString(): 0
         let accountID = localStorage.getItem("accountIDlve")
 
         console.log(stringCorrectAnswer);

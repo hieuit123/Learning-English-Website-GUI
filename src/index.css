@@ -794,7 +794,8 @@ a:hover {
 }
 
 .right-panel-wb-detail img {
-    width: 100%;
+    height: 200px;
+    width: auto;
     left: 0;
 }
 
@@ -1443,8 +1444,8 @@ button:focus {
 }
 
 .img-book img {
-    height: 210px;
-    width: auto;
+    height: 200px;
+    max-width: -webkit-fill-available;
 }
 
 .category-of-book-front {
