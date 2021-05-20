@@ -2,26 +2,38 @@ import React from 'react'
 import MiniNumberDay from './MiniNumberDay'
 
 export default function MiniStreakBar(props) {
-
-var  initStreakStatus = [
-        {status:"visible"},
-        {status:"visible"},
-        {status:"visible"},
-        {status:"visible"},
-        {status:"visible"},
-        {status:"visible"},
-        {status:"disable"}
-    ]
+    let streakData = sessionStorage.getItem("streakDataAccount")
+    let streakJsonData = JSON.parse(streakData)
+    let StreakHtml
+    if (streakData) {
+        StreakHtml = streakJsonData.map((streak, index) => {
+            let day;
+            let status;
+            switch (streak.day) {
+                case 0: day = "CN"
+                    break
+                case 1: day = "T2"
+                    break;
+                case 2: day = "T3"
+                    break;
+                case 3: day = "T4"
+                    break;
+                case 4: day = "T5"
+                    break;
+                case 5: day = "T6"
+                    break;
+                case 6: day = "T7"
+                    break;
+            }
+            if (streak.data == 0) status = "disable"
+            else status = "visible"
+            return <MiniNumberDay day={day} status={status} />
+        })
+    }
 
     return (
         <div className="d-flex justify-content-around mini-streak">
-            <MiniNumberDay day="T2" status = {initStreakStatus[0].status} />
-            <MiniNumberDay day="T3" status = {initStreakStatus[1].status} />
-            <MiniNumberDay day="T4" status = {initStreakStatus[2].status} />
-            <MiniNumberDay day="T5" status = {initStreakStatus[3].status} />
-            <MiniNumberDay day="T6" status = {initStreakStatus[4].status} />
-            <MiniNumberDay day="T7" status = {initStreakStatus[5].status} />
-            <MiniNumberDay day="CN" status = {initStreakStatus[6].status} />
+            {(streakData) ? StreakHtml.reverse() : ""}
             <div className="border-left">
                 <div className="mini-number-day-streak">{props.streakDay}</div>
                 <div className="mini-streak-style-text">STREAK</div>

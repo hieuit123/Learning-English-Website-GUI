@@ -24,7 +24,7 @@ export default function WordsList(props) {
     const WordListHtml = ()=>{
 
             let wordListHtml = wordData.map((word)=>{
-                return <WordOfCategory originalWord={word.WOS_originalWord} 
+                return <WordOfCategory key={word.WOS_Id} originalWord={word.WOS_originalWord} 
                 translateWord = {word.WOS_translateWord} 
                 image={word.WOS_Avatar} 
                  />

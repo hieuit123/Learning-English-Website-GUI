@@ -20,7 +20,7 @@ export default function CategoriesList() {
     const CategoryListHtml = ()=>{
 
             let CategoryListHtml = categoryData.map((category)=>{
-                return <CategoriesOfBook name={category.COB_Name}  
+                return <CategoriesOfBook key={category.COB_Id} name={category.COB_Name}  
                 link={bookId+"/"+category.COB_Id} 
                 image={category.COB_Image} 
                 backLink={window.location} />

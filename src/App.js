@@ -32,7 +32,7 @@ class App extends Component {
       let result = await axios.get("/wordbook/getallbyidaccount/" + accountId)
       let finalResult = result.data
       console.log(finalResult);
-      if (finalResult.status)  this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
+      if (finalResult.status) this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
     }
 
     if (!this.props.accountManage.accountData) { //init account
@@ -43,12 +43,12 @@ class App extends Component {
         },
         body: formBody
       }).then(data => data.json())
-      let analyticResult = await axios.get("word/getAnalyticWordByIdAccount/"+ accountId)
-      
+      let analyticResult = await axios.get("http://localhost:5000/word/getAnalyticWordByIdAccount/" + accountId)
+
       if (response.status === true) {
         let initDataAccount = response.data[0]
         let analyticData = analyticResult.data.data
-        if(analyticResult.data.status) initDataAccount = {...initDataAccount, analyticData}
+        if (analyticResult.data.status) initDataAccount = { ...initDataAccount, analyticData }
         this.props.callInitDispatch(actions.initAccountDataAction(initDataAccount))
         return response
       }
@@ -60,6 +60,15 @@ class App extends Component {
     if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
   render() {
+    //load streak of account
+    let streakData = null
+      initStreakData()
+      streakData = sessionStorage.getItem("streakDataAccount")
+    async function initStreakData (){
+      let accountId = localStorage.getItem("accountIDlve")
+      let streakResult = await axios.get("/account/getstreakbyidaccount/" + accountId)
+      if(streakResult.data.status) sessionStorage.setItem("streakDataAccount", JSON.stringify(streakResult.data.data))
+    }
     let showComponentClass = "row container-main-content"
     let myToken = localStorage.getItem("tokenlve")
     if (!myToken) showComponentClass = ""

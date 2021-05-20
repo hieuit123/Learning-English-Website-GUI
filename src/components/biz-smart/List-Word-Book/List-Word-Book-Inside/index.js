@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Book from './Book'
-import axios from 'axios'
 import {connect} from 'react-redux'
 
 class ListWordBookInside extends Component {

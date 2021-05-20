@@ -23,19 +23,28 @@ class Book extends Component {
                     console.log(finalResultStateData);
                     this.props.onOpenBookDetail(actions.initWordsDataAction(finalResult.data, finalResultStateData, this.props.wordbook.WB_Name))
                 }
-                else{
-                    this.props.onOpenBookDetail(actions.initWordsDataAction(null, null, this.props.wordbook.WB_Name))                    
+                else {
+                    this.props.onOpenBookDetail(actions.initWordsDataAction(null, null, this.props.wordbook.WB_Name))
                 }
             }
             isClickButton = false
 
         }
 
-        const handleRemove = () => {
+        const handleRemove = async () => {
             //remove wordbook
-            let confirmRemove = window.confirm("Bạn chắc chắn muốn xóa sổ từ này?")
-            if(confirmRemove) alert("Đã xóa")
             isClickButton = true
+            let confirmRemove = window.confirm("Bạn chắc chắn muốn xóa sổ từ này?")
+            if (confirmRemove) {
+                let result = await axios.get("/wordbook/updateWordBookState/" + this.props.wordbook.WB_Id)
+                if (result.data.status) {
+                    alert("Đã xóa")
+                    let result = await axios.get("/wordbook/getallbyidaccount/" + this.props.wordbook.WB_idAccount)
+                    let finalResult = result.data
+                    if (finalResult.status) this.props.onOpenBookDetail(actions.initWordbookDataAction(finalResult.data))
+                }
+            }
+
         }
         return (
             <div className={this.props.color} onClick={handleClickItem} >
