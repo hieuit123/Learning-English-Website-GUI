@@ -9,9 +9,11 @@ const handleClick = () => {
 }
 
 export default function Navigator() {
-  
+    let showComponentClass = ""
+  let accountIDlve = localStorage.getItem("accountIDlve")
+  if(accountIDlve === 'false') showComponentClass = "hide-component"
     return (
-        <>
+        <div className={showComponentClass}>
             <div className="d-flex justify-content-around">
                 <div className="zoom-style-hover">
                     <Link to="/">
@@ -43,6 +45,6 @@ export default function Navigator() {
                 </div>
             </div>
             <div onClick={handleClick} className="btn-logout-nav"><i className="fas fa-sign-out-alt"></i>Đăng xuất</div>
-        </>
+        </div>
     )
 }

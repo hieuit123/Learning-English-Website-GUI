@@ -4,7 +4,7 @@ import SignUpForm from './Sign-Up'
 
 export default function AccountForm() {
         return (
-            <div>
+            <div className="account-login-lve">
                 <h1 className="glow">LEV - LEARNING ENGLISH VOCABULARY</h1>
                 <div id="logreg-forms">
                     <LoginForm/>

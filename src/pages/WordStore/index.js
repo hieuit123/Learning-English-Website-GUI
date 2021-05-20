@@ -1,5 +1,5 @@
 import React from 'react'
-import {useLocation} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,10 +7,10 @@ import {
     Link,
     useParams,
     useRouteMatch
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import BooksList from './BooksList'
-import CategoriesList from './CategoriesList'  
+import CategoriesList from './CategoriesList'
 import WordsList from './WordsList'
 
 function useQuery() {
@@ -19,21 +19,20 @@ function useQuery() {
 
 export default function WordStore() {
     let { path, url } = useRouteMatch();
-    let query = useQuery();
     return (
-        <div>
+        <>
             <Switch>
                 <Route exact path={path}>
-                    <BooksList/>
+                    <BooksList />
                 </Route>
                 <Route exact path={`${path}/:bookId`} >
-                    <CategoriesList/>
+                    <CategoriesList />
                 </Route>
                 <Route exact path={`${path}/:bookId/:categoryId`} >
-                    <WordsList/>
+                    <WordsList />
                 </Route>
             </Switch>
-        </div>
+        </>
     )
 }
 

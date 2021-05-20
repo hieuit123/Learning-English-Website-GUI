@@ -12,8 +12,10 @@ class Game extends Component {
         let accountID = localStorage.getItem("accountIDlve")
         const getGameData = async () => {
             if (!this.props.gameManage.questionData && accountID) {
+
                 let gameData = await axios.get("/word/getTenWordByIdCatalogStored/" + accountID)
-                if (gameData.data.status) {
+                if (gameData.data.status && gameData.data.data[0] != null) {
+                    console.log("chay hoai :"+gameData.data.data);
                     this.props.initGameData(gameData.data.data[0])
                 }
             }
@@ -27,6 +29,7 @@ class Game extends Component {
         }
 
         const GameQuestion = () => {
+            console.log(this.props.gameManage.questionData + "HEREEEEEEEEEEEEEEEEEE");
             if (this.props.gameManage.questionData) {
                 let currentQuestion = this.props.gameManage.currentQuestion
                 let gameData = this.props.gameManage.questionData
@@ -49,17 +52,14 @@ class Game extends Component {
                     //show component final game, and ask user , do you continue game or exit(go to home)
                 }
             }
-            return null
+            return <h3 className="color-text-default"> Bạn chưa thêm từ vào sổ từ</h3>
         }
   
-        console.log(this.props.gameManage.currentQuestion + "HEREEEEEEEEEEEEEEEEE E " + this.maxLength);
         return (
-            <div>
-                <div className="col-12 container-game">
+                <div className="container game-container">
                 {(this.props.gameManage.currentQuestion <= maxLength)? <Navigation numberQuestion = {this.props.gameManage.currentQuestion} /> :null}
                     <GameQuestion/>
                 </div>
-            </div>
         )
     }
 }

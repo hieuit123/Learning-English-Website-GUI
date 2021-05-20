@@ -38,7 +38,8 @@ class ToolBar extends Component {
             let finalResult = result.data
             
             if (finalResult.status) this.props.callDispatch(actions.initWordsDataAction(finalResult.data))
-            console.log(finalResult.status);
+            else this.props.callDispatch(actions.initWordsDataAction("notFoundWords"))
+            
         }
         const updateSearchResult = async (e) => {
             let myRegex = /\w+/;
@@ -56,7 +57,7 @@ class ToolBar extends Component {
                         <i className="fas fa-chevron-circle-left fa-lg"></i>
                     </div>
                 </Link>
-                <div className="t-wb-detail">Công nghệ thông tin <br></br> <div className="sotu">Số từ: 3</div></div>
+                <div className="t-wb-detail">{(this.props.wordsManage.nameWordbook !== "") ? this.props.wordsManage.nameWordbook:""} <br></br> <div className="sotu">Số từ: {(this.props.wordsManage.statesWordbook) ? this.props.wordsManage.statesWordbook.dangHoc + this.props.wordsManage.statesWordbook.daThuoc:"0"}</div></div>
 
                 <select onClick={e => changeOption(e)} id="filterOption" className="form-select" aria-label="Default select example">
                     <option value={0}>Sắp xếp theo</option>
@@ -76,7 +77,11 @@ class ToolBar extends Component {
         )
     }
 }
-
+const mapStateToProps = (state)=> {
+    return {
+        wordsManage:state.wordsManage
+    }
+}
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         callDispatch: (action) => {
@@ -84,4 +89,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }
     }
 }
-export default connect(null, mapDispatchToProps)(ToolBar)
+export default connect(mapStateToProps, mapDispatchToProps)(ToolBar)

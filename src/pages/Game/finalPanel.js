@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import * as actions from './../../actions'
-
+import axios from 'axios'
 
 class FinalPanel extends Component {
     constructor(props) {
@@ -12,11 +12,10 @@ class FinalPanel extends Component {
             numberFailedAnswer: 0
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
         let arrayFailedAnswer = []
         let questionData = this.props.gameManage.questionData
         let arrayCorrectAnswer = this.props.gameManage.arrayCorrectAnswer
-        let isArrayCorrectNull
 
         for (let i in questionData) {
             if (!this.props.gameManage.arrayCorrectAnswer) break
@@ -28,13 +27,21 @@ class FinalPanel extends Component {
             })
             if (flagFailed) arrayFailedAnswer.push(questionData[i].Word.W_Id) // if word not true -> add to array failed array
         }
-        let myResult = arrayCorrectAnswer + ";" + arrayFailedAnswer
-        console.log("from:" + myResult + "end")
+        let stringCorrectAnswer = (arrayCorrectAnswer != "") ? arrayCorrectAnswer.toString(): 0
+        let stringFailedAnswer = (arrayFailedAnswer !="") ? arrayFailedAnswer.toString(): 0
+        let accountID = localStorage.getItem("accountIDlve")
+
+        console.log(stringCorrectAnswer);
+        let result = await axios.get("/word/update/"+stringCorrectAnswer+"/"+stringFailedAnswer+"/"+accountID)
+        console.log(result.data.status);
+        console.log("ket qua that bai: "+arrayFailedAnswer.toString());
+        console.log("ket qua thanh cong: "+arrayCorrectAnswer.toString());
+
+
         this.setState({
             numberCorrectAnswer: arrayCorrectAnswer.length,
             numberFailedAnswer: questionData.length - arrayCorrectAnswer.length
         })
-        console.log("so cau sai");
     }
     render() {
         const handleEndGame = () => {

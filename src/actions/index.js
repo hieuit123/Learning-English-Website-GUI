@@ -46,10 +46,12 @@ export const addCorrectAnswerIDAction = (correctAnswerID) => {
 export const backToQuestionOne = () => {
     return { type: types.BACK_TO_QUESTION_ONE }
 }
-export const initWordsDataAction = (data) => {
+export const initWordsDataAction = (data,stateData, nameWordbook) => {
     return {
         type: types.INIT_WORDS_DATA,
-        wordsData: data
+        wordsData: data,
+        statesWordbook:stateData,
+        nameWordbook:nameWordbook
     }
 }
 
@@ -57,5 +59,16 @@ export const initAccountDataAction = (data) => {
     return {
         type: types.INIT_ACCOUNT_DATA,
         accountData: data
+    }
+}
+export const initWordbookDataAction = (data) => {
+    return {
+        type: types.INIT_WORDBOOK_DATA,
+        wordbookData: data
+    }
+}
+export const resetWordbookDataAction = () => {
+    return {
+        type: types.RESET_WORDS_DATA,
     }
 }

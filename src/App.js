@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 import Home from './pages/Home';
 import AccountForm from './pages/Account'
@@ -26,7 +27,15 @@ class App extends Component {
       S_Value: ssId
     }
     let formBody = convertPostData(credentialAccount)
-    if (!this.props.accountManage.accountData) {
+    if (!this.props.accountManage.wordbookData) {// init word book
+
+      let result = await axios.get("/wordbook/getallbyidaccount/" + accountId)
+      let finalResult = result.data
+      console.log(finalResult);
+      if (finalResult.status) this.props.callInitDispatch(actions.initWordbookDataAction(finalResult.data))
+    }
+
+    if (!this.props.accountManage.accountData) { //init account
       let response = await fetch(`${configUrl.NODE_SERVER_URL}/account/getone`, {
         method: 'POST',
         headers: {
@@ -34,20 +43,36 @@ class App extends Component {
         },
         body: formBody
       }).then(data => data.json())
+      let analyticResult = await axios.get("http://localhost:5000/word/getAnalyticWordByIdAccount/" + accountId)
+
       if (response.status === true) {
-        this.props.callInitDispatch(actions.initAccountDataAction(response.data[0]))
+        let initDataAccount = response.data[0]
+        let analyticData = analyticResult.data.data
+        if (analyticResult.data.status) initDataAccount = { ...initDataAccount, analyticData }
+        this.props.callInitDispatch(actions.initAccountDataAction(initDataAccount))
         return response
       }
       return false;
     }
-    if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
 
   componentDidUpdate() {
     if (this.props.gameManage.finalGame) this.props.callInitDispatch(actions.resetGameDataAction())
   }
   render() {
+    //load streak of account
+    let streakData = null
+      initStreakData()
+      streakData = sessionStorage.getItem("streakDataAccount")
+    async function initStreakData (){
+      let accountId = localStorage.getItem("accountIDlve")
+      let streakResult = await axios.get("/account/getstreakbyidaccount/" + accountId)
+      if(streakResult.data.status) sessionStorage.setItem("streakDataAccount", JSON.stringify(streakResult.data.data))
+    }
+    let showComponentClass = "row container-main-content"
     let myToken = localStorage.getItem("tokenlve")
+    if (!myToken) showComponentClass = ""
+
     return (
       <div className="App">
         <header className="App-header">
@@ -64,30 +89,32 @@ class App extends Component {
                   <Navigator />
                 </div>
               </div>
-              <Switch>
-                <Route exact path="/" exact>
-                  {!myToken ? <Redirect to="/login" /> : <Home />}
-                </Route>
+              <div className={showComponentClass}>
+                <Switch>
+                  <Route exact path="/" exact>
+                    {!myToken ? <Redirect to="/login" /> : <Home />}
+                  </Route>
 
-                <Route exact path="/login" exact>
-                  {!myToken ? <AccountForm /> : <Redirect to="/" />}
-                </Route>
+                  <Route exact path="/login" exact>
+                    {!myToken ? <AccountForm /> : <Redirect to="/" />}
+                  </Route>
 
-                <Route path="/manage" exact>
-                  {!myToken ? <Redirect to="/login" /> : <WordBook />}
-                </Route>
+                  <Route path="/manage" exact>
+                    {!myToken ? <Redirect to="/login" /> : <WordBook />}
+                  </Route>
 
-                <Route path="/game" exact>
-                  {this.props.gameManage.finalGame ? <Redirect to="/" /> : null}
-                  {!myToken ? <Redirect to="/login" /> : <Game />}
-                </Route>
-                <Route path="/account">
-                  {!myToken ? <Redirect to="/login" /> : <AccountDetail />}
-                </Route>
-                <Route path="/word-store">
-                  <WordStore />
-                </Route>
-              </Switch>
+                  <Route path="/game" exact>
+                    {this.props.gameManage.finalGame ? <Redirect to="/" /> : null}
+                    {!myToken ? <Redirect to="/login" /> : <Game />}
+                  </Route>
+                  <Route path="/account">
+                    {!myToken ? <Redirect to="/login" /> : <AccountDetail />}
+                  </Route>
+                  <Route path="/word-store">
+                    <WordStore />
+                  </Route>
+                </Switch>
+              </div>
               {/* <AccountForm/> */}
             </div>
           </div>
@@ -103,7 +130,7 @@ const mapStateToProps = (state) => {
   return {
     loginState: state.loginReducer,
     gameManage: state.gameManage,
-    accountManage: state.accountManage
+    accountManage: state.accountManage,
   }
 }
 
