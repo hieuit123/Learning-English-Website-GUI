@@ -5,7 +5,7 @@ import CheckAnswerPopup from '../checkAnswerPopup';
 import QuestionAnswerContainer from './questionAnswerContainer'
 import * as actions from './../../../actions'
 import textToSpeech from './../../../utils/spellWord'
-
+import Notify from './../../../components/common/Notify'
 
 class GameMode2 extends Component {
     constructor(props) {
@@ -17,7 +17,8 @@ class GameMode2 extends Component {
             selectedAnswer: "",
             content: "",
             isDisabledClickQA: false,
-            phrase: ""
+            phrase: "",
+            phraseMean: ""
         }
     }
     componentDidMount() {
@@ -28,6 +29,7 @@ class GameMode2 extends Component {
         }
         console.log(this.props.data);
         this.setState({ phrase: this.props.data.Word.W_Phrase });
+        this.setState({ phraseMean: this.props.data.Word.W_phraseMean });
         let wrongWords = this.props.data.fourAnswer.split(";")
         let arrayPhraseAnswer = initData.phrase.split(" ")
         for (let index in wrongWords) arrayPhraseAnswer.push(wrongWords[index])
@@ -177,11 +179,12 @@ class GameMode2 extends Component {
             </>
             return result
         }
-        
+
         const continueClick = () => {
             this.props.callGameManageReducer(actions.nextQuestion(numberQuestion + 1))
             if (this.state.answerState === "true") this.props.callGameManageReducer(actions.addCorrectAnswerIDAction(this.props.data.Word.W_Id))
         }
+
         //Check answer : phrase with input user
         const checkAnswer = () => {
             let userInput = this.state.answerQueue.toString()
@@ -209,6 +212,7 @@ class GameMode2 extends Component {
         return (
             <div className="gameMode2 container">
                 <i onClick={() => spellWord()} className="fas fa-volume-up fa-4x iGameMode2"></i>
+                <div className="hint" data-toggle="modal" data-target="#notify-lve" ><i className="fas fa-lightbulb fa-2x"></i></div>
                 <div className="answer-container">
                     {(this.state.answerQueue) ? answer() : ""}
                     <div className="line-gameMode2"></div>
@@ -219,10 +223,11 @@ class GameMode2 extends Component {
                 </div>
                 <CheckAnswerPopup
                     checkClick={() => checkAnswer()}
-                    continueClick={()=>continueClick()}
+                    continueClick={() => continueClick()}
                     stateAnswer={this.state.answerState}
                     ownAnswer={this.state.selectedAnswer}
                     correctAnswer={this.state.content} />
+                <Notify title="Gợi ý nghĩa của câu" content={this.state.phraseMean} />
             </div>
         )
     }

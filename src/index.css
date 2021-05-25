@@ -423,13 +423,6 @@ a:hover {
     color: #b7b7b7;
 }
 
-.border-left {
-    padding-left: 15px;
-    background: #ff8000;
-    padding-right: 15px;
-    border-radius: 10px;
-}
-
 
 /* end xl-streak-bar */
 
@@ -444,6 +437,9 @@ a:hover {
         width: 100%;
         border-radius: 10px;
     }
+    .border-left {
+        display: none;
+    }
     .word-book-container {
         background: rgb(255, 255, 255);
         padding: 10px;
@@ -451,6 +447,9 @@ a:hover {
         border-radius: 10px;
         padding-right: 0;
         margin-bottom: 0;
+    }
+    .container-main-content .account-container {
+        display: none;
     }
 }
 
@@ -462,6 +461,9 @@ a:hover {
         width: 33%;
         border-radius: 10px;
     }
+    .container-main-content .account-container {
+        display: block;
+    }
     .word-book-container {
         background: rgb(255, 255, 255);
         padding: 10px;
@@ -469,6 +471,13 @@ a:hover {
         border-radius: 10px;
         padding-right: 0;
         border-left: 1px solid #9e9e9e;
+    }
+    .border-left {
+        padding-left: 15px;
+        background: #ff8000;
+        padding-right: 15px;
+        border-radius: 10px;
+        display: block;
     }
 }
 
@@ -1559,3 +1568,17 @@ button:focus {
 
 
 /* end word store */
+
+.hint i {
+    color: rgb(250, 225, 0);
+    float: right;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #5a5a5a;
+    box-shadow: 1px 3px 10px #797979;
+    cursor: pointer;
+}
+
+.modal-header div {
+    color: rgb(24, 24, 24);
+}
