@@ -54,8 +54,12 @@ export default class WordDetailPopup extends Component {
             }).then(data => data.json()).then(json => { if (json.status == false) alert("Đã có lỗi xảy ra") })
 
         }
-        const deleteWordById = () => {
+        const deleteWordById = async () => {
             let isRemove = window.confirm("Bạn chắc chắn muốn xóa từ này ?")
+            if(isRemove) {
+                updateStateWord(2);
+                window.location.reload();
+            }
             console.log(isRemove + " deleted word with id = " + this.props.id)
         }
         const changeStateWord = (idState) => {

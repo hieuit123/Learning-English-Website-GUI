@@ -1579,6 +1579,6 @@ button:focus {
     cursor: pointer;
 }
 
-.modal-header div {
+.modal-header.div {
     color: rgb(24, 24, 24);
 }
