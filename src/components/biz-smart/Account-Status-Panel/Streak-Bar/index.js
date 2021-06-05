@@ -27,7 +27,7 @@ export default function MiniStreakBar(props) {
             }
             if (streak.data == 0) status = "disable"
             else status = "visible"
-            return <MiniNumberDay day={day} status={status} />
+            return <MiniNumberDay key={index} day={day} status={status} />
         })
     }
 

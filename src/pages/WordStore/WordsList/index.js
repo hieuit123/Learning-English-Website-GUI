@@ -8,6 +8,7 @@ import WordOfCategory from './WordOfCategory';
 export default function WordsList(props) {
     let { categoryId } = useParams()
     const [wordData, setWordData] = useState(null)
+    const [listWordBook, setListWordBook] = useState(null)
     let currentUrl = window.location + ""
     let arrayUrl = currentUrl.split("/")
     let backLink = ""
@@ -15,18 +16,21 @@ export default function WordsList(props) {
 
     const initData = async () => {
         if (wordData == null)  {
+            let accountId = localStorage.getItem("accountIDlve");
             let wordDataResult = await axios.get("/word/getallwordofstore/"+categoryId)
             if(wordDataResult.data.status) setWordData(wordDataResult.data.data)
-            else setWordData("notFound")
+            else setWordData("notFound");
+            let listWordBookResult = await axios.get("/wordbook/getallbyidaccount/"+accountId);
+            if(listWordBookResult.data.status) setListWordBook(listWordBookResult.data.data);
         }
     }
-    initData()
+    initData();
     const WordListHtml = ()=>{
-
             let wordListHtml = wordData.map((word)=>{
                 return <WordOfCategory key={word.WOS_Id} originalWord={word.WOS_originalWord} 
                 translateWord = {word.WOS_translateWord} 
                 image={word.WOS_Avatar} 
+                listWordBook = {listWordBook}
                  />
             }) 
             return wordListHtml
