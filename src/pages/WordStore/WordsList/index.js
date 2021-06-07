@@ -26,8 +26,8 @@ export default function WordsList(props) {
     }
     initData();
     const WordListHtml = ()=>{
-            let wordListHtml = wordData.map((word)=>{
-                return <WordOfCategory key={word.WOS_Id} originalWord={word.WOS_originalWord} 
+            let wordListHtml = wordData.map((word,index)=>{
+                return <WordOfCategory key={index} originalWord={word.WOS_originalWord} 
                 translateWord = {word.WOS_translateWord} 
                 image={word.WOS_Avatar} 
                 listWordBook = {listWordBook}

@@ -65,13 +65,15 @@ class WordOfCategory extends Component {
             let resultIpaWord = await getIpaWord(this.props.originalWord)
             let phrase;
             let ipaWord;
+
             if (resultIpaWord) {
                 if (resultIpaWord.pronunciation.all) ipaWord = resultIpaWord.pronunciation.all
                 if (!resultIpaWord.pronunciation.all) ipaWord = resultIpaWord.pronunciation
             }
             else ipaWord = "";
             console.log(resultGetExample2);
-            if (resultGetExample2) {
+            
+            if (resultGetExample2) {// get min example length
                 let examplesArray = resultGetExample2.examples
                 phrase = examplesArray[0]
                 
@@ -135,7 +137,7 @@ class WordOfCategory extends Component {
                             <div>{this.props.translateWord} </div>
                             <select id="selectWordbook" onClick={handleSelect}>
                                 {(this.props.listWordBook) ? this.props.listWordBook.map((wordbook) => {
-                                    return <option value={wordbook.WB_Id}>{wordbook.WB_Name}</option>
+                                    return <option key={wordbook.WB_Id} value={wordbook.WB_Id}>{wordbook.WB_Name}</option>
                                 }) : ""}
                             </select>
 

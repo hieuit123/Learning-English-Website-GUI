@@ -20,6 +20,7 @@ import Navigator from './components/smart/Navigator';
 class App extends Component {
 
   async componentDidMount() {
+    console.log(process.env.REACT_APP_URL_SERVER);
     let ssId = localStorage.getItem("tokenlve")
     let accountId = localStorage.getItem("accountIDlve")
     let credentialAccount = {

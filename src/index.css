@@ -1474,7 +1474,8 @@ button:focus {
 }
 
 .category-of-book-front img {
-    max-height: 145px;
+    height: 145px;
+    width: 145px;
 }
 
 .category-of-book-front div {
@@ -1541,6 +1542,7 @@ button:focus {
 
 .category-of-book-back button:hover {
     background-color: #1fcc00;
+    cursor: pointer;
 }
 
 .word-of-category {
