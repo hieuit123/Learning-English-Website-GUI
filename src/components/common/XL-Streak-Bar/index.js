@@ -7,6 +7,9 @@ export default function StreakBar() {
     let streakJsonData = JSON.parse(streakData)
     let StreakHtml
     if (streakData) {
+    streakJsonData.sort((streak1, streak2)=>{
+        return streak2.day - streak1.day;
+    });
         StreakHtml = streakJsonData.map((streak, index) => {
             let day;
             let status;

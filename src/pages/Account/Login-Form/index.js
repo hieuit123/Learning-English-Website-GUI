@@ -48,11 +48,6 @@ class LoginForm extends Component {
             <>
                 <form onSubmit={handleSubmit} className="form-signin">
                     <h1 className="h3 mb-3 font-weight-normal t-login" style={{ textAlign: 'center' }}> Đăng Nhập</h1>
-                    <div className="social-login">
-                        <button className="btn facebook-btn social-btn" type="button"><span><i className="fab fa-facebook-f" /> Đăng nhập bằng Facebook</span> </button>
-                        <button className="btn google-btn social-btn" type="button"><span><i className="fab fa-google-plus-g" /> Đăng nhập bằng Google+</span> </button>
-                    </div>
-                    <p className="t-or" > HOẶC</p>
                     <input type="email" id="inputEmail" className="form-control" placeholder="Địa chỉ email"  onChange={e => this.setState({ username: e.target.value })}  required />
                     <input type="password" id="inputPassword" className="form-control" placeholder="Mật khẩu" onChange={e => this.setState({ password: e.target.value })} required />
                     <button className="btn btn-success btn-block" type="submit"><i className="fas fa-sign-in-alt" /> Đăng nhập</button>

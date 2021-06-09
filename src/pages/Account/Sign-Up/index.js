@@ -66,13 +66,6 @@ export default class SignUpForm extends Component {
             <>
 
                 <form onSubmit={handleSubmit} className="form-signup">
-                    <div className="social-login">
-                        <button className="btn facebook-btn social-btn" type="button"><span><i className="fab fa-facebook-f" /> Đăng ký bằng Facebook</span> </button>
-                    </div>
-                    <div className="social-login">
-                        <button className="btn google-btn social-btn" type="button"><span><i className="fab fa-google-plus-g" /> Đăng ký bằng Google+</span> </button>
-                    </div>
-                    <p className="t-or">HOẶC</p>
                     <div className="alert alert-danger" id="alertWarning" role="alert">
 
                     </div>
