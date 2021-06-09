@@ -16,6 +16,7 @@ import WordStore from './pages/WordStore';
 import convertPostData from './utils/convertPostData'
 import * as configUrl from './assets/config/config-url'
 import Navigator from './components/smart/Navigator';
+import Dictionary from './pages/Dictionary';
 
 class App extends Component {
 
@@ -113,6 +114,10 @@ class App extends Component {
                   </Route>
                   <Route path="/word-store">
                     <WordStore />
+                  </Route>
+
+                  <Route path="/dictionary/:word">
+                    <Dictionary/>
                   </Route>
                 </Switch>
               </div>
