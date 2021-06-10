@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {useParams} from "react-router-dom";
 import axios from 'axios'
 
@@ -9,6 +9,8 @@ export default function WordsList(props) {
     let { categoryId } = useParams()
     const [wordData, setWordData] = useState(null)
     const [listWordBook, setListWordBook] = useState(null)
+    const [categoryName, setCategoryName] = useState("");
+
     let currentUrl = window.location + ""
     let arrayUrl = currentUrl.split("/")
     let backLink = ""
@@ -22,6 +24,13 @@ export default function WordsList(props) {
             else setWordData("notFound");
             let listWordBookResult = await axios.get("/wordbook/getallbyidaccount/"+accountId);
             if(listWordBookResult.data.status) setListWordBook(listWordBookResult.data.data);
+
+            let categoryDataResult = await axios.get("/word/getOneCategoryOfBook/"+categoryId);
+            console.log(categoryDataResult);
+            if(categoryDataResult.data.status){
+                console.log(categoryDataResult.data.data[0].COB_Name);
+                setCategoryName(categoryDataResult.data.data[0].COB_Name)
+            }
         }
     }
     initData();
@@ -37,7 +46,7 @@ export default function WordsList(props) {
     }
     return (
         <div className="container">
-            <ToolBar title="CÂY CỐI" backLink = {backLink} />
+            <ToolBar title={categoryName} backLink = {backLink} />
             <div className="row g-2 container-book-list">
             {(wordData && wordData != "notFound") ? <WordListHtml/> : ""}
             {(wordData == "notFound") ? <h3 className="toolbar-store">Tạm thời chưa có dữ liệu</h3> : ""}
