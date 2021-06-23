@@ -1,3 +1,7 @@
+# Hướng dẫn
+Ứng dụng web sử dụng Node làm server nên cần phải cài đặt server trước.
+Truy cập vào https://github.com/tranthanhphong050999/Learning-English-Website-BackEnd để tải và cài đặt server.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
